@@ -139,7 +139,9 @@ function getSuggestion(englishRaw) {
     // Placeholder {arch}
     if (entryEng.includes("{arch}")) {
       let pattern = escapeRegex(entryEng);
-      pattern = pattern.replace("\\{arch\\}", "(.+?)");
+	  pattern = pattern.replace("\\{arch\\}", "(\\S+)");
+
+
 
       const regex = new RegExp("^" + pattern + "$");
       const match = english.match(regex);
