@@ -23,6 +23,11 @@
     "english": "This package contains {compiler} cross-compiler for {arch} architecture.",
     "traduzione": "Questo pacchetto contiene il cross-compilatore {compiler} per l'architettura {arch}."
   },
+
+  {
+    "english": "This package contains {compiler} cross-compiler for the {arch} architecture.",
+    "traduzione": "Questo pacchetto contiene il cross-compilatore {compiler} per l'architettura {arch}."
+  },  
   
   {
     "english": "This is a dependency package providing the default GNU {compiler} cross-compiler for the {arch} architecture.",
