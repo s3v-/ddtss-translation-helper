@@ -5,27 +5,27 @@
   },
 
   {
-    "english": "GNU C++ compiler for {arch} architecture",
-    "traduzione": "compilatore GNU C++ per l'architettura {arch}"
+    "english": "GNU {compiler} compiler for {arch} architecture",
+    "traduzione": "compilatore GNU {compiler} per l'architettura {arch}"
   },  
 
   {
-    "english": "GNU C++ compiler (cross compiler for {arch} architecture)",
-    "traduzione": "compilatore GNU C++ (cross-compilatore per l'architettura {arch})"
+    "english": "GNU {compiler} compiler (cross compiler for {arch} architecture)",
+    "traduzione": "compilatore GNU {compiler} (cross-compilatore per l'architettura {arch})"
   },
 
   {
-    "english": "This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.",
-    "traduzione": "Il compilatore GNU C++, un compilatore largamente portabile e ottimizzante per C++."
+    "english": "This is the GNU {compiler} compiler, a fairly portable optimizing compiler for {compiler}.",
+    "traduzione": "Il compilatore GNU {compiler}, un compilatore largamente portabile e ottimizzante per {compiler}."
   },
 
   {
-    "english": "This package contains C++ cross-compiler for {arch} architecture.",
-    "traduzione": "Questo pacchetto contiene il cross-compilatore C++ per l'architettura {arch}."
+    "english": "This package contains {compiler} cross-compiler for {arch} architecture.",
+    "traduzione": "Questo pacchetto contiene il cross-compilatore {compiler} per l'architettura {arch}."
   },
   
   {
-    "english": "This is a dependency package providing the default GNU C++ cross-compiler for the {arch} architecture.",
-    "traduzione": "Questo è un pacchetto di dipendenze che fornisce il cross-compilatore GNU C++ predefinito per l'architettura {arch}."
+    "english": "This is a dependency package providing the default GNU {compiler} cross-compiler for the {arch} architecture.",
+    "traduzione": "Questo è un pacchetto di dipendenze che fornisce il cross-compilatore GNU {compiler} predefinito per l'architettura {arch}."
   }
 ]

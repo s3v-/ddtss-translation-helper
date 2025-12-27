@@ -136,23 +136,35 @@ function getSuggestion(englishRaw) {
 
     const entryEng = entry.english;
 
-    // Placeholder {arch}
-    if (entryEng.includes("{arch}")) {
+    // Trova tutti i placeholder nel database: {arch}, {compiler}, ecc.
+    const placeholders = [...entryEng.matchAll(/\{(\w+)\}/g)].map(m => m[1]);
+
+    if (placeholders.length > 0) {
+      // Costruisci regex sostituendo ogni placeholder con (\S+)
       let pattern = escapeRegex(entryEng);
-	  pattern = pattern.replace("\\{arch\\}", "(\\S+)");
+      for (const ph of placeholders) {
+        pattern = pattern.replace("\\{" + ph + "\\}", "(\\S+)");
+      }
 
       const regex = new RegExp("^" + pattern + "$");
       const match = english.match(regex);
 
       if (match) {
-        const arch = match[1];
+        let trad = entry.traduzione;
 
-        if (arch == "host")
-		  return entry.traduzione.replace("{arch}", "ospite");
-	    else if (arch == "build")
-          return entry.traduzione.replace("{arch}", "di compilazione");
-        else
-          return entry.traduzione.replace("{arch}", arch);
+        placeholders.forEach((ph, i) => {
+          let value = match[i + 1];
+
+          // Eccezioni semantiche per {arch}
+          if (ph === "arch") {
+            if (value === "host") value = "ospite";
+            else if (value === "build") value = "di compilazione";
+          }
+
+          trad = trad.replace("{" + ph + "}", value);
+        });
+
+        return trad;
       }
     }
 
