@@ -141,14 +141,16 @@ function getSuggestion(englishRaw) {
       let pattern = escapeRegex(entryEng);
 	  pattern = pattern.replace("\\{arch\\}", "(\\S+)");
 
-
-
       const regex = new RegExp("^" + pattern + "$");
       const match = english.match(regex);
 
       if (match) {
         const arch = match[1];
-        return entry.traduzione.replace("{arch}", arch);
+
+        if (arch == "host")
+		  return entry.traduzione.replace("{arch}", "ospite");
+        else
+          return entry.traduzione.replace("{arch}", arch);
       }
     }
 
