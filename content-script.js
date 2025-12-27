@@ -347,6 +347,17 @@ if (englishBody && italianBodyElement) {
 
       output += `Paragrafo ${i + 1}:\n`;
 
+      // Controllo righe più lunghe di 75 caratteri nel paragrafo italiano
+	  const longLinesITA = ita
+	    .split("\n")
+	    .filter(line => line.length > 75);
+
+	  if (longLinesITA.length > 0) {
+	    output +=
+		  `  Attenzione: alcune righe del testo italiano superano i 75 caratteri.\n` +
+		  `  <button class="apply-wrap-ita" data-index="${i}">Applica wrap al paragrafo</button>\n\n`;
+	  }
+
       if (!suggestion) {
         output += "  Nessun suggerimento trovato.\n\n";
         continue;
@@ -391,6 +402,25 @@ document.addEventListener("click", (e) => {
 
   const paragraphs = italianBodyElement.value.split(/\n\.\n/);
   paragraphs[index] = wrap75(suggestion);
+
+  italianBodyElement.value = paragraphs.join("\n.\n");
+
+  const btn = [...document.querySelectorAll("button")]
+    .find(b => b.textContent === "Suggerisci testo");
+
+  if (btn) btn.click();
+});
+
+// ===============================
+// Event listener per "Applica wrap" sul testo italiano
+// ===============================
+document.addEventListener("click", (e) => {
+  if (!e.target.classList.contains("apply-wrap-ita")) return;
+
+  const index = parseInt(e.target.dataset.index, 10);
+
+  const paragraphs = italianBodyElement.value.split(/\n\.\n/);
+  paragraphs[index] = wrap75(paragraphs[index]);
 
   italianBodyElement.value = paragraphs.join("\n.\n");
 
