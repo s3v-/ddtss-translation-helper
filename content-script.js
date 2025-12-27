@@ -149,6 +149,8 @@ function getSuggestion(englishRaw) {
 
         if (arch == "host")
 		  return entry.traduzione.replace("{arch}", "ospite");
+	    else if (arch == "build")
+          return entry.traduzione.replace("{arch}", "di compilazione");
         else
           return entry.traduzione.replace("{arch}", arch);
       }
