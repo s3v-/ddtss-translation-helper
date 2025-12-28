@@ -1,7 +1,7 @@
 [
   {
-    "english": "GNU C++ compiler for the {arch} architecture",
-    "traduzione": "compilatore GNU C++ per l'architettura {arch}"
+    "english": "GNU {compiler} compiler for the {arch} architecture",
+    "traduzione": "compilatore GNU {compiler} per l'architettura {arch}"
   },
 
   {
