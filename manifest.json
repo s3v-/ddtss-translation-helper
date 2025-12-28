@@ -12,6 +12,14 @@
     }
   ],
 
+  "browser_action": {
+    "default_title": "DDTSS Helper"
+  },
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
   "web_accessible_resources": [
     "database.json"
   ]

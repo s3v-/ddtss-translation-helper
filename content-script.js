@@ -201,10 +201,20 @@ function createSidePanel() {
   panel.innerHTML = `
     <div style="display:flex; justify-content:space-between; align-items:center;">
       <h2 style="margin:0; font-size:18px;">Suggerimenti</h2>
-      <button id="ddtss-close" style="font-size:16px; cursor:pointer;">✖</button>
+      <div>
+        <button id="ddtss-refresh"
+                title="Aggiorna pannello"
+                style="font-size:16px; margin-right:8px; cursor:pointer;">↻</button>
+        <button id="ddtss-close"
+                title="Chiudi pannello"
+                style="font-size:16px; cursor:pointer;">✖</button>
+      </div>
     </div>
-    <div id="ddtss-content" style="margin-top:10px; white-space:pre-wrap; font-family:monospace;"></div>
+    <div id="ddtss-content"
+         style="margin-top:10px; white-space:pre-wrap; font-family:monospace;"></div>
   `;
+
+
 
   document.body.appendChild(panel);
 
@@ -255,6 +265,140 @@ function openSidePanel(text) {
   document.getElementById("ddtss-sidepanel").style.right = "0";
 }
 
+function refreshSidePanel() {
+  const panel = document.getElementById("ddtss-sidepanel");
+  if (panel) {
+    // Forza la chiusura
+    panel.style.right = "-450px";
+  }
+  // E poi riapre con contenuto aggiornato
+  toggleSidePanel();
+}
+
+function updateSidePanel() {
+  // Ricostruisce il contenuto SENZA chiudere il pannello
+  const panel = document.getElementById("ddtss-sidepanel");
+  if (!panel) return;
+
+  // Rigenera il contenuto
+  let output = "";
+  // Riutilizza la logica di toggleSidePanel, ma senza chiudere
+  toggleSidePanel(); // chiude
+  toggleSidePanel(); // riapre aggiornato
+}
+
+
+function toggleSidePanel() {
+  console.log("toggleSidePanel() eseguito");
+
+  const panel = document.getElementById("ddtss-sidepanel");
+
+  // Se è aperto → chiudi
+  if (panel && panel.style.right === "0px") {
+    panel.style.right = "-450px";
+    return;
+  }
+
+  createSidePanel();
+
+  let output = "";
+
+  // ===============================
+  // SUGGERIMENTO TITOLO
+  // ===============================
+  if (englishTitle && italianTitle) {
+    const ita = italianTitle.value.trim();
+    const eng = englishTitle;
+    const suggestion = getSuggestion(eng);
+
+    output += "=== TITOLO ===\n";
+
+    if (!suggestion) {
+      output += "Nessun suggerimento trovato.\n\n";
+    } else if (ita.includes("<trans>")) {
+      output += `Suggerimento:\n${suggestion}\n\n`;
+    } else {
+      const itaNorm = normalizeForComparison(ita);
+      const suggNorm = suggestion;
+      const sim = similarity(itaNorm, suggNorm);
+
+      if (sim === 100) {
+        output += "Traduzione corretta.\n\n";
+      } else {
+        const diff = generateLineDiffWithHighlight(itaNorm, suggNorm);
+
+        output +=
+          `Suggerimento:\n${suggestion}\n` +
+          `Similarità: ${sim}%\n\n` +
+          `Diff:\n${diff}\n\n` +
+          `<button class="apply-title" data-suggestion="${encodeURIComponent(suggestion)}">Applica suggerimento</button>\n\n`;
+      }
+    }
+  }
+
+  // ===============================
+  // SUGGERIMENTI TESTO (CORPO)
+  // ===============================
+  if (englishBody && italianBodyElement) {
+    const englishParagraphs = englishBody
+      .split(/\n\.\n/)
+      .map(p => p.trim());
+
+    const italianParagraphs = italianBodyElement.value
+      .split(/\n\.\n/)
+      .map(p => p.trim());
+
+    output += "=== TESTO ===\n";
+
+    for (let i = 0; i < englishParagraphs.length; i++) {
+      const eng = englishParagraphs[i];
+      const ita = italianParagraphs[i] || "";
+      const suggestion = getSuggestion(eng);
+
+      output += `\nParagrafo ${i + 1}:\n`;
+
+      // Controllo righe >75
+      const longLinesITA = ita
+        .split("\n")
+        .filter(line => line.length > 75);
+
+      if (longLinesITA.length > 0) {
+        output +=
+          `  Attenzione: alcune righe superano i 75 caratteri.\n` +
+          `  <button class="apply-wrap-ita" data-index="${i}">Applica wrap al paragrafo</button>\n\n`;
+      }
+
+      if (!suggestion) {
+        output += "  Nessun suggerimento trovato.\n";
+        continue;
+      }
+
+      if (ita.includes("<trans>")) {
+        output += `  Suggerimento:\n  ${suggestion}\n`;
+        continue;
+      }
+
+      const itaNorm = normalizeForComparison(ita);
+      const suggNorm = suggestion;
+      const sim = similarity(itaNorm, suggNorm);
+
+      if (sim === 100) {
+        output += "  Traduzione corretta.\n";
+      } else {
+        const diff = generateLineDiffWithHighlight(itaNorm, suggNorm);
+
+        output +=
+          `  Suggerimento:\n  ${suggestion}\n` +
+          `  Similarità: ${sim}%\n\n` +
+          `Diff:\n${diff}\n\n` +
+          `<button class="apply-suggestion" data-index="${i}" data-suggestion="${encodeURIComponent(suggestion)}">Applica suggerimento</button>\n`;
+      }
+    }
+  }
+
+  openSidePanel(output);
+}
+
 
 // ===============================
 // Estrazione campi dal DDTSS
@@ -270,127 +414,6 @@ if (englishBody) englishBody = removeOneLeadingSpace(englishBody).trim();
 
 const italianBodyElement = document.querySelector("textarea[name='long']");
 
-
-// ===============================
-// Bottone: Suggerisci titolo
-// ===============================
-if (englishTitle && italianTitle) {
-  const btn = document.createElement("button");
-  btn.type = "button";
-  btn.textContent = "Suggerisci titolo";
-  btn.style.marginLeft = "6px";
-  italianTitle.insertAdjacentElement("afterend", btn);
-
-  btn.addEventListener("click", () => {
-    const italian = getSuggestion(englishTitle);
-
-    if (!italian) {
-      openSidePanel("Nessun suggerimento trovato nel database.");
-      return;
-    }
-
-    if (italianTitle.value.includes("<trans>")) {
-      openSidePanel("Suggerimento titolo:\n\n" + italian);
-      return;
-    }
-
-    const itaNorm = normalizeForComparison(italianTitle.value.trim());
-    const suggNorm = italian;
-
-    const sim = similarity(itaNorm, suggNorm);
-
-    if (sim === 100) {
-      openSidePanel("Traduzione corretta.");
-    } else {
-      const diff = generateLineDiffWithHighlight(itaNorm, suggNorm);
-
-      openSidePanel(
-        "Suggerimento titolo:\n\n" +
-        italian +
-        "\n\nSimilarità: " + sim + "%\n\nDiff:\n" + diff +
-        `\n\n<button class="apply-title" data-suggestion="${encodeURIComponent(italian)}">Applica suggerimento</button>`
-      );
-    }
-  });
-}
-
-
-// ===============================
-// Bottone: Suggerisci testo (corpo)
-// ===============================
-if (englishBody && italianBodyElement) {
-
-  const btnBody = document.createElement("button");
-  btnBody.type = "button";
-  btnBody.textContent = "Suggerisci testo";
-  btnBody.style.marginLeft = "6px";
-  italianBodyElement.insertAdjacentElement("afterend", btnBody);
-
-  btnBody.addEventListener("click", () => {
-
-    const currentItalianBody = italianBodyElement.value;
-
-    const englishParagraphs = englishBody
-      .split(/\n\.\n/)
-      .map(p => p.trim());
-
-    const italianParagraphs = currentItalianBody
-      .split(/\n\.\n/)
-      .map(p => p.trim());
-
-    let output = "";
-
-    for (let i = 0; i < englishParagraphs.length; i++) {
-      const eng = englishParagraphs[i];
-      const ita = italianParagraphs[i] || "";
-      const suggestion = getSuggestion(eng);
-
-      output += `Paragrafo ${i + 1}:\n`;
-
-      // Controllo righe più lunghe di 75 caratteri nel paragrafo italiano
-	  const longLinesITA = ita
-	    .split("\n")
-	    .filter(line => line.length > 75);
-
-	  if (longLinesITA.length > 0) {
-	    output +=
-		  `  Attenzione: alcune righe del testo italiano superano i 75 caratteri.\n` +
-		  `  <button class="apply-wrap-ita" data-index="${i}">Applica wrap al paragrafo</button>\n\n`;
-	  }
-
-      if (!suggestion) {
-        output += "  Nessun suggerimento trovato.\n\n";
-        continue;
-      }
-
-      if (ita.includes("<trans>")) {
-        output += `  Suggerimento:\n  ${suggestion}\n\n`;
-        continue;
-      }
-
-      const itaNorm = normalizeForComparison(ita);
-      const suggNorm = suggestion;
-
-      const sim = similarity(itaNorm, suggNorm);
-
-      if (sim === 100) {
-        output += "  Traduzione corretta.\n\n";
-      } else {
-        const diff = generateLineDiffWithHighlight(itaNorm, suggNorm);
-
-        output +=
-          `  Suggerimento:\n  ${suggestion}\n` +
-          `  Similarità: ${sim}%\n\n` +
-          `Diff:\n${diff}\n\n` +
-          `<button class="apply-suggestion" data-index="${i}" data-suggestion="${encodeURIComponent(suggestion)}">Applica suggerimento</button>\n\n`;
-      }
-    }
-
-    openSidePanel(output);
-  });
-}
-
-
 // ===============================
 // Event listener per "Applica suggerimento" (corpo)
 // ===============================
@@ -405,10 +428,7 @@ document.addEventListener("click", (e) => {
 
   italianBodyElement.value = paragraphs.join("\n.\n");
 
-  const btn = [...document.querySelectorAll("button")]
-    .find(b => b.textContent === "Suggerisci testo");
-
-  if (btn) btn.click();
+  refreshSidePanel();
 });
 
 // ===============================
@@ -424,10 +444,7 @@ document.addEventListener("click", (e) => {
 
   italianBodyElement.value = paragraphs.join("\n.\n");
 
-  const btn = [...document.querySelectorAll("button")]
-    .find(b => b.textContent === "Suggerisci testo");
-
-  if (btn) btn.click();
+  refreshSidePanel();
 });
 
 
@@ -441,8 +458,22 @@ document.addEventListener("click", (e) => {
 
   italianTitle.value = suggestion;
 
-  const btn = [...document.querySelectorAll("button")]
-    .find(b => b.textContent === "Suggerisci titolo");
-
-  if (btn) btn.click();
+  refreshSidePanel();
 });
+
+document.addEventListener("click", (e) => {
+  if (e.target.id === "ddtss-refresh") {
+    updateSidePanel();
+  }
+});
+
+
+browser.runtime.onMessage.addListener((msg) => {
+  console.log("MESSAGGIO RICEVUTO NEL CONTENT-SCRIPT:", msg);
+  if (msg.action === "toggle-panel") {
+    console.log("→ toggleSidePanel() chiamato");
+    toggleSidePanel();
+  }
+});
+
+
