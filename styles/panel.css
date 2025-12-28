@@ -1,0 +1,84 @@
+/* Pannello */
+#ddtss-sidepanel {
+  box-shadow: 0 0 8px rgba(0,0,0,0.15);
+  border-left: 1px solid #ddd;
+  background: #fff;
+  font-family: system-ui, sans-serif;
+  color: #333;
+}
+
+/* Header */
+#ddtss-sidepanel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  background: #f3f3f3;
+  border-bottom: 1px solid #ddd;
+}
+
+#ddtss-sidepanel-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2c3e50; /* colore titolo */
+}
+
+/* Bottoni */
+#ddtss-sidepanel-buttons button {
+  background: none;
+  border: none;
+  padding: 4px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.15s;
+  color: #2c3e50;
+}
+
+#ddtss-sidepanel-buttons button:hover {
+  background: rgba(0,0,0,0.08);
+}
+
+/* Sezioni */
+
+/* Sezione TITOLO */
+.ddtss-section-title {
+  border-left: 3px solid #4c9aff; /* blu */
+  padding-left: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f3a93; /* testo blu scuro */
+  margin: 10px 0 6px;
+}
+
+/* Sezione TESTO */
+.ddtss-section-text {
+  border-left: 3px solid #2ecc71; /* verde */
+  padding-left: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e824c; /* testo verde scuro */
+  margin: 14px 0 6px;
+}
+
+
+/* Contenuto */
+#ddtss-content {
+  padding: 12px 14px;
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #333;
+}
+
+/* Diff colorati */
+.ddtss-added {
+  background: #e6ffed;
+  color: #22863a;
+}
+
+.ddtss-removed {
+  background: #ffeef0;
+  color: #cb2431;
+}

@@ -199,20 +199,17 @@ function createSidePanel() {
   panel.style.zIndex = "999999";
 
   panel.innerHTML = `
-    <div style="display:flex; justify-content:space-between; align-items:center;">
-      <h2 style="margin:0; font-size:18px;">Suggerimenti</h2>
-      <div>
-        <button id="ddtss-refresh"
-                title="Aggiorna pannello"
-                style="font-size:16px; margin-right:8px; cursor:pointer;">↻</button>
-        <button id="ddtss-close"
-                title="Chiudi pannello"
-                style="font-size:16px; cursor:pointer;">✖</button>
+    <div id="ddtss-sidepanel-header">
+      <h2>Suggerimenti</h2>
+      <div id="ddtss-sidepanel-buttons">
+        <button id="ddtss-refresh" title="Aggiorna">↻</button>
+        <button id="ddtss-close" title="Chiudi">✖</button>
       </div>
     </div>
-    <div id="ddtss-content"
-         style="margin-top:10px; white-space:pre-wrap; font-family:monospace;"></div>
+
+    <div id="ddtss-content"></div>
   `;
+
 
 
 
@@ -311,7 +308,7 @@ function toggleSidePanel() {
     const eng = englishTitle;
     const suggestion = getSuggestion(eng);
 
-    output += "=== TITOLO ===\n";
+    output += "<div class='ddtss-section-title'>Titolo</div>";
 
     if (!suggestion) {
       output += "Nessun suggerimento trovato.\n\n";
@@ -348,14 +345,14 @@ function toggleSidePanel() {
       .split(/\n\.\n/)
       .map(p => p.trim());
 
-    output += "=== TESTO ===\n";
+    output += "<div class='ddtss-section-text'>Testo</div>";
 
     for (let i = 0; i < englishParagraphs.length; i++) {
       const eng = englishParagraphs[i];
       const ita = italianParagraphs[i] || "";
       const suggestion = getSuggestion(eng);
 
-      output += `\nParagrafo ${i + 1}:\n`;
+      output += `Paragrafo ${i + 1}:\n`;
 
       // Controllo righe >75
       const longLinesITA = ita
@@ -383,7 +380,7 @@ function toggleSidePanel() {
       const sim = similarity(itaNorm, suggNorm);
 
       if (sim === 100) {
-        output += "  Traduzione corretta.\n";
+        output += "  Traduzione corretta.\n\n";
       } else {
         const diff = generateLineDiffWithHighlight(itaNorm, suggNorm);
 

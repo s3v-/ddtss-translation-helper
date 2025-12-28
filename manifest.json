@@ -8,6 +8,7 @@
     {
       "matches": ["*://ddtp.debian.org/ddtss/index.cgi/*"],
       "js": ["content-script.js"],
+	  "css": ["styles/panel.css"],
       "run_at": "document_idle"
     }
   ],
