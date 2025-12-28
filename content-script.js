@@ -412,6 +412,28 @@ if (englishBody) englishBody = removeOneLeadingSpace(englishBody).trim();
 const italianBodyElement = document.querySelector("textarea[name='long']");
 
 // ===============================
+// Funzione per applicare modifiche al DDTSS
+// ===============================
+function applyDDTSSChange(element, newValue) {
+  if (!element) return;
+
+  element.value = newValue;
+
+  // Eventi che DDTSS si aspetta
+  element.dispatchEvent(new Event("input", { bubbles: true }));
+  element.dispatchEvent(new Event("change", { bubbles: true }));
+
+  // Solo textarea richiede keyup
+  if (element.tagName.toLowerCase() === "textarea") {
+    element.dispatchEvent(new KeyboardEvent("keyup", { bubbles: true }));
+  }
+
+  // Fondamentale: forza il confronto interno
+  element.dispatchEvent(new Event("blur", { bubbles: true }));
+}
+
+
+// ===============================
 // Event listener per "Applica suggerimento" (corpo)
 // ===============================
 document.addEventListener("click", (e) => {
@@ -423,9 +445,9 @@ document.addEventListener("click", (e) => {
   const paragraphs = italianBodyElement.value.split(/\n\.\n/);
   paragraphs[index] = wrap75(suggestion);
 
-  italianBodyElement.value = paragraphs.join("\n.\n");
-
+  applyDDTSSChange(italianBodyElement, paragraphs.join("\n.\n"));
   refreshSidePanel();
+
 });
 
 // ===============================
@@ -439,9 +461,9 @@ document.addEventListener("click", (e) => {
   const paragraphs = italianBodyElement.value.split(/\n\.\n/);
   paragraphs[index] = wrap75(paragraphs[index]);
 
-  italianBodyElement.value = paragraphs.join("\n.\n");
-
+  applyDDTSSChange(italianBodyElement, paragraphs.join("\n.\n"));
   refreshSidePanel();
+
 });
 
 
@@ -453,9 +475,9 @@ document.addEventListener("click", (e) => {
 
   const suggestion = decodeURIComponent(e.target.dataset.suggestion);
 
-  italianTitle.value = suggestion;
-
+  applyDDTSSChange(italianTitle, suggestion);
   refreshSidePanel();
+
 });
 
 document.addEventListener("click", (e) => {
