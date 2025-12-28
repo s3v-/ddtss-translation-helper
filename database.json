@@ -10,6 +10,11 @@
   },  
 
   {
+    "english": "GNU {compiler} compiler (multilib files)",
+    "traduzione": "compilatore GNU {compiler} (file multilib)"
+  },
+
+  {
     "english": "GNU {compiler} compiler (cross compiler for {arch} architecture)",
     "traduzione": "compilatore GNU {compiler} (cross-compilatore per l'architettura {arch})"
   },
@@ -28,9 +33,29 @@
     "english": "This package contains {compiler} cross-compiler for the {arch} architecture.",
     "traduzione": "Questo pacchetto contiene il cross-compilatore {compiler} per l'architettura {arch}."
   },  
-  
+
   {
     "english": "This is a dependency package providing the default GNU {compiler} cross-compiler for the {arch} architecture.",
     "traduzione": "Questo è un pacchetto di dipendenze che fornisce il cross-compilatore GNU {compiler} predefinito per l'architettura {arch}."
+  },
+
+  {
+    "english": "This is a dependency package providing the default GNU {compiler} compiler.",
+    "traduzione": "Questo è un pacchetto di dipendenze che fornisce il compilatore GNU {compiler} predefinito."
+  },
+
+  {
+    "english": "When using {compiler} via this metapackage, all tools must be used with an architecture prefix.",
+    "traduzione": "Quando si usa {compiler} attraverso questo metapacchetto, tutti gli strumenti devono essere usati con un prefisso per l'architettura."
+  },
+
+  {
+    "english": "When using {compiler} via this metapackage, all tools must be used without an architecture prefix.",
+    "traduzione": "Quando si usa {compiler} attraverso questo metapacchetto, tutti gli strumenti devono essere usati senza un prefisso per l'architettura."
+  },
+
+  {
+    "english": "GNU {compiler} compiler (multilib support) (cross compiler for {arch} architecture)",
+    "traduzione": "compilatore GNU {compiler} (gestione multilib) (cross-compilatore per l'architettura {arch})"
   }
 ]
