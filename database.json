@@ -247,5 +247,15 @@
   {
     "english": "This package is a dependency package, which depends on Debian's default Python 3 version's venv module (currently v{version}).",
     "traduzione": "Questo è un pacchetto di dipendenze che dipende dal modulo venv per la versione di Python 3 predefinita in Debian (attualmente v{version})."
+  },
+
+  {
+    "english": "This package contains the documentation for {package}.",
+    "traduzione": "Questo pacchetto contiene la documentazione per {package}."
+  },
+
+  {
+    "english": "This package provides the documentation for {package}.",
+    "traduzione": "Questo pacchetto fornisce la documentazione per {package}."
   }
 ]
