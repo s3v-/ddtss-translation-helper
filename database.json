@@ -25,6 +25,18 @@
   },
   "patterns": [
     {
+      "english": "This is the {lang}-{lang} dictionary from the FreeDict project. It contains {num} headwords (FreeDict status: {freedict_status}). It can be either used with the dictd server and a dict client or with GoldenDict.",
+      "translations": {
+        "it": "dizionario {lang}-{lang} per client/server dict"
+      }
+    },
+    {
+      "english": "This is the {lang}-{lang} dictionary from the FreeDict project. It contains {num} headwords (FreeDict status: {freedict_status}). It can be either used with the dictd server and a dict client or with GoldenDict.",
+      "translations": {
+        "it": "Questo è il dizionario {lang}-{lang} del progetto FreeDict. Contiene {num} voci (stato FreeDict: {freedict_status}). Può essere usato con il server dictd e un client dict oppure con GoldenDict."
+      }
+    },
+    {
       "english": "{lang}-{lang} dictionary for the dict server/client",
       "translations": {
         "it": "dizionario {lang}-{lang} per client/server dict"
