@@ -1,5 +1,23 @@
 {
   "globals": {
+    "lang": {
+      "Afrikaans": "afrikaans",
+      "German": "tedesco",
+      "English": "inglese",
+      "French": "francese",
+      "Italian": "italiano",
+      "Spanish": "spagnolo"
+    },
+    "freedict_status": {
+      "low quality": "bassa qualità",
+      "small": "piccolo",
+      "too small": "troppo piccolo",
+      "stable": "stabile",
+      "Big enough to be useful": "abbastanza grande da essere utile",
+      "big enough": "abbastanza grande",
+      "big": "grande",
+      "unstable": "non stabile"
+    },
     "arch": {
       "host": "ospite",
       "build": "di compilazione"
