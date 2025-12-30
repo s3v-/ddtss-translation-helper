@@ -132,7 +132,7 @@ function generateLineDiffWithHighlight(oldText, newText) {
 
 
 // ===============================
-// Motore di suggerimento 3.0-dev.7
+// Motore di suggerimento
 // ===============================
 function getSuggestion(englishRaw) {
   if (!db) return null;
@@ -142,47 +142,40 @@ function getSuggestion(englishRaw) {
   // Normalizza l'inglese dalla pagina
   const english = englishRaw.replace(/\s*\n\s*/g, " ").trim();
 
-  for (const entry of db) {
+  for (const entry of db.patterns) {
     if (!entry || !entry.english || !entry.translations) continue;
 
     const entryEng = entry.english;
 
-    // Trova tutti i placeholder nel database: {arch}, {compiler}, ecc.
+    // Trova placeholder
     const placeholders = [...entryEng.matchAll(/\{(\w+)\}/g)].map(m => m[1]);
 
-    if (placeholders.length > 0) {
-      // Costruisci regex sostituendo ogni placeholder con (\S+)
-      let pattern = escapeRegex(entryEng);
-      for (const ph of placeholders) {
-        pattern = pattern.replace("\\{" + ph + "\\}", "(\\S+)");
-      }
+    let pattern = escapeRegex(entryEng);
 
-      const regex = new RegExp("^" + pattern + "$");
-      const match = english.match(regex);
-
-      if (match) {
-        let trad = entry.translations[lang];
-
-        placeholders.forEach((ph, i) => {
-          let value = match[i + 1];
-
-          // Eccezioni semantiche per {arch}
-          if (ph === "arch") {
-            if (value === "host") value = "ospite";
-            else if (value === "build") value = "di compilazione";
-          }
-
-          trad = trad.replace("{" + ph + "}", value);
-        });
-
-        return trad;
-      }
+    // Placeholder multi-parola
+    for (const ph of placeholders) {
+      pattern = pattern.replace("\\{" + ph + "\\}", "(.+?)");
     }
 
-    // Match esatto
-    if (entryEng === english) {
-      return entry.translations[lang];
-    }
+    const regex = new RegExp("^" + pattern + "$");
+    const match = english.match(regex);
+
+    if (!match) continue;
+
+    let trad = entry.translations[lang];
+
+    placeholders.forEach((ph, i) => {
+      let value = match[i + 1].trim();
+
+      // Traduzione tramite mappa globale
+      if (db.globals && db.globals[ph] && db.globals[ph][value]) {
+        value = db.globals[ph][value];
+      }
+
+      trad = trad.replace("{" + ph + "}", value);
+    });
+
+    return trad;
   }
 
   return null;

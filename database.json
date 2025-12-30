@@ -1,603 +1,538 @@
-[
-  {
-    "english": "GNU {compiler} compiler for the {arch} architecture",
-    "translations": {
-        "it": "compilatore GNU {compiler} per l'architettura {arch}"
+{
+  "globals": {
+    "arch": {
+      "host": "ospite",
+      "build": "di compilazione"
     }
   },
-
-  {
-    "english": "GNU {compiler} compiler for {arch} architecture",
-    "translations": {
+  "patterns": [
+    {
+      "english": "{lang}-{lang} dictionary for the dict server/client",
+      "translations": {
+        "it": "dizionario {lang}-{lang} per client/server dict"
+      }
+    },
+    {
+      "english": "This is the {lang}-{lang} dictionary from the FreeDict project. It contains {num} headwords (FreeDict status: {freedict_status}). It can be either used with the dictd server and a dict client or with GoldenDict.",
+      "translations": {
+        "it": "Questo è il dizionario {lang}-{lang} del progetto FreeDict. Contiene {num} voci (stato FreeDict: {freedict_status}). Può essere usato con il server dictd e un client dict oppure con GoldenDict."
+      }
+    },
+    {
+      "english": "GNU {compiler} compiler for the {arch} architecture",
+      "translations": {
         "it": "compilatore GNU {compiler} per l'architettura {arch}"
-    }
-  },
-
-  {
-    "english": "GNU {compiler} compiler (multilib files)",
-    "translations": {
+      }
+    },
+    {
+      "english": "GNU {compiler} compiler for {arch} architecture",
+      "translations": {
+        "it": "compilatore GNU {compiler} per l'architettura {arch}"
+      }
+    },
+    {
+      "english": "GNU {compiler} compiler (multilib files)",
+      "translations": {
         "it": "compilatore GNU {compiler} (file multilib)"
-    }
-  },
-
-  {
-    "english": "GNU {compiler} compiler (cross compiler for {arch} architecture)",
-    "translations": {
+      }
+    },
+    {
+      "english": "GNU {compiler} compiler (cross compiler for {arch} architecture)",
+      "translations": {
         "it": "compilatore GNU {compiler} (cross-compilatore per l'architettura {arch})"
-    }
-  },
-
-  {
-    "english": "GNU {compiler} compiler (cross compiler for {arch})",
-    "translations": {
+      }
+    },
+    {
+      "english": "GNU {compiler} compiler (cross compiler for {arch})",
+      "translations": {
         "it": "compilatore GNU {compiler} (cross-compilatore per {arch})"
-    }
-  },
-
-  {
-    "english": "This is the GNU {compiler} compiler, a fairly portable optimizing compiler for {compiler}.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This is the GNU {compiler} compiler, a fairly portable optimizing compiler for {compiler}.",
+      "translations": {
         "it": "Il compilatore GNU {compiler}, un compilatore largamente portabile e ottimizzante per {compiler}."
-    }
-  },
-
-  {
-    "english": "This package contains {compiler} cross-compiler for {arch} architecture.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This package contains {compiler} cross-compiler for {arch} architecture.",
+      "translations": {
         "it": "Questo pacchetto contiene il cross-compilatore {compiler} per l'architettura {arch}."
-    }
-  },
-
-  {
-    "english": "This package contains {compiler} cross-compiler for the {arch} architecture.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This package contains {compiler} cross-compiler for the {arch} architecture.",
+      "translations": {
         "it": "Questo pacchetto contiene il cross-compilatore {compiler} per l'architettura {arch}."
-    }
-  },
-
-  {
-    "english": "This is a dependency package providing the default GNU {compiler} cross-compiler for the {arch} architecture.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This is a dependency package providing the default GNU {compiler} cross-compiler for the {arch} architecture.",
+      "translations": {
         "it": "Questo è un pacchetto di dipendenze che fornisce il cross-compilatore GNU {compiler} predefinito per l'architettura {arch}."
-    }
-  },
-
-  {
-    "english": "This is a dependency package providing the default GNU {compiler} compiler.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This is a dependency package providing the default GNU {compiler} compiler.",
+      "translations": {
         "it": "Questo è un pacchetto di dipendenze che fornisce il compilatore GNU {compiler} predefinito."
-    }
-  },
-
-  {
-    "english": "When using {compiler} via this metapackage, all tools must be used with an architecture prefix.",
-    "translations": {
+      }
+    },
+    {
+      "english": "When using {compiler} via this metapackage, all tools must be used with an architecture prefix.",
+      "translations": {
         "it": "Quando si usa {compiler} attraverso questo metapacchetto, tutti gli strumenti devono essere usati con un prefisso per l'architettura."
-    }
-  },
-
-  {
-    "english": "When using {compiler} via this metapackage, all tools must be used without an architecture prefix.",
-    "translations": {
+      }
+    },
+    {
+      "english": "When using {compiler} via this metapackage, all tools must be used without an architecture prefix.",
+      "translations": {
         "it": "Quando si usa {compiler} attraverso questo metapacchetto, tutti gli strumenti devono essere usati senza un prefisso per l'architettura."
-    }
-  },
-
-  {
-    "english": "GNU {compiler} compiler (multilib support) (cross compiler for {arch} architecture)",
-    "translations": {
+      }
+    },
+    {
+      "english": "GNU {compiler} compiler (multilib support) (cross compiler for {arch} architecture)",
+      "translations": {
         "it": "compilatore GNU {compiler} (gestione multilib) (cross-compilatore per l'architettura {arch})"
-    }
-  },
-
-  {
-    "english": "IDE for Python (v{version}) using Tkinter",
-    "translations": {
+      }
+    },
+    {
+      "english": "IDE for Python (v{version}) using Tkinter",
+      "translations": {
         "it": "IDE per Python (v{version}) che usa Tkinter"
-    }
-  },
-
-  {
-    "english": "IDLE is an Integrated Development Environment for Python (v{version}). IDLE is written using Tkinter and therefore quite platform-independent.",
-    "translations": {
+      }
+    },
+    {
+      "english": "IDLE is an Integrated Development Environment for Python (v{version}). IDLE is written using Tkinter and therefore quite platform-independent.",
+      "translations": {
         "it": "IDLE è un ambiente di sviluppo integrato (Integrated Development Environment) per Python (v{version}). IDLE è scritto usando Tkinter e perciò piuttosto indipendente dalla piattaforma."
-    }
-  },
-
-  {
-    "english": "Shared Python runtime library (version {version})",
-    "translations": {
+      }
+    },
+    {
+      "english": "Shared Python runtime library (version {version})",
+      "translations": {
         "it": "libreria runtime Python condivisa (versione {version})"
-    }
-  },
-
-  {
-    "english": "Python is a high-level, interactive, object-oriented language. Its {version} version includes an extensive class library with lots of goodies for network programming, system administration, sounds and graphics.",
-    "translations": {
+      }
+    },
+    {
+      "english": "Python is a high-level, interactive, object-oriented language. Its {version} version includes an extensive class library with lots of goodies for network programming, system administration, sounds and graphics.",
+      "translations": {
         "it": "Python è un linguaggio interattivo di alto livello orientato agli oggetti. La sua versione {version} include un'estesa libreria di classi con molte belle funzionalità per la programmazione di rete, l'amministrazione di sistema, il suono e la grafica."
-    }
-  },
-
-  {
-    "english": "Debug Build of the Python Interpreter (version {version})",
-    "translations": {
+      }
+    },
+    {
+      "english": "Debug Build of the Python Interpreter (version {version})",
+      "translations": {
         "it": "compilazione di debug dell'interprete Python (versione {version})"
-    }
-  },
-
-  {
-    "english": "Header files and a static library for Python (v{version})",
-    "translations": {
+      }
+    },
+    {
+      "english": "Header files and a static library for Python (v{version})",
+      "translations": {
         "it": "file header e libreria statica per Python (v{version})"
-    }
-  },
-
-  {
-    "english": "Header files, a static library and development tools for building Python (v{version}) modules, extending the Python interpreter or embedding Python (v{version}) in applications.",
-    "translations": {
+      }
+    },
+    {
+      "english": "Header files, a static library and development tools for building Python (v{version}) modules, extending the Python interpreter or embedding Python (v{version}) in applications.",
+      "translations": {
         "it": "File header, una libreria statica e strumenti di sviluppo per compilare moduli Python (v{version}), estendere l'interprete Python o incorporare Python (v{version}) in applicazioni."
-    }
-  },
-
-  {
-    "english": "Documentation for the high-level object-oriented language Python (v{version})",
-    "translations": {
+      }
+    },
+    {
+      "english": "Documentation for the high-level object-oriented language Python (v{version})",
+      "translations": {
         "it": "documentazione per il linguaggio di alto livello orientato agli oggetti Python (v{version})"
-    }
-  },
-
-  {
-    "english": "Examples for the Python language (v{version})",
-    "translations": {
+      }
+    },
+    {
+      "english": "Examples for the Python language (v{version})",
+      "translations": {
         "it": "esempi per il linguaggio Python (v{version})"
-    }
-  },
-
-  {
-    "english": "Examples, Demos and Tools for Python (v{version}). These are files included in the upstream Python distribution (v{version}).",
-    "translations": {
+      }
+    },
+    {
+      "english": "Examples, Demos and Tools for Python (v{version}). These are files included in the upstream Python distribution (v{version}).",
+      "translations": {
         "it": "Esempi, dimostrazioni e strumenti per Python (v{version}). Questi sono file inclusi nella distribuzione di Python (v{version}) originale."
-    }
-  },
-
-  {
-    "english": "Python Interpreter with complete class library (version {version})",
-    "translations": {
+      }
+    },
+    {
+      "english": "Python Interpreter with complete class library (version {version})",
+      "translations": {
         "it": "interprete Python con una libreria completa di classi (versione {version})"
-    }
-  },
-
-  {
-    "english": "GNU dbm database support for Python (v{version})",
-    "translations": {
+      }
+    },
+    {
+      "english": "GNU dbm database support for Python (v{version})",
+      "translations": {
         "it": "supporto per database GNU dbm per Python (v{version})"
-    }
-  },
-
-  {
-    "english": "This package contains the interpreter and some essential modules.  It can be used in the boot process for some basic tasks. See /usr/share/doc/python{version}-minimal/README.Debian for a list of the modules contained in this package.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This package contains the interpreter and some essential modules.  It can be used in the boot process for some basic tasks. See /usr/share/doc/python{version}-minimal/README.Debian for a list of the modules contained in this package.",
+      "translations": {
         "it": "Questo pacchetto contiene l'interprete e alcuni moduli essenziali. Può essere usato nel processo di avvio per alcuni compiti di base. Vedere /usr/share/doc/python{version}-minimal/README.Debian per un elenco dei moduli contenuti in questo pacchetto."
-    }
-  },
-
-  {
-    "english": "Python interpreter linked without PIE (version {version})",
-    "translations": {
+      }
+    },
+    {
+      "english": "Python interpreter linked without PIE (version {version})",
+      "translations": {
         "it": "interprete Python con link senza PIE (versione {version})"
-    }
-  },
-
-  {
-    "english": "This package contains the interpreter not built as position independent executable. This interpreter is diverting the python{version} executable, and making the interpreter built with PIE available as python{version}-pie.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This package contains the interpreter not built as position independent executable. This interpreter is diverting the python{version} executable, and making the interpreter built with PIE available as python{version}-pie.",
+      "translations": {
         "it": "Questo pacchetto contiene l'interprete non compilato come PIE (Position Independent Executable). Questo interprete è diverso dall'eseguibile python{version} e rende l'interprete compilato con PIE disponibile come python{version}-pie."
-    }
-  },
-
-  {
-    "english": "Tkinter - Writing Tk applications with Python (v{version})",
-    "translations": {
+      }
+    },
+    {
+      "english": "Tkinter - Writing Tk applications with Python (v{version})",
+      "translations": {
         "it": "Tkinter - scrittura di applicazioni Tk con Python (v{version})"
-    }
-  },
-
-  {
-    "english": "A module for writing portable GUI applications with Python (v{version}) using Tk. Also known as Tkinter.",
-    "translations": {
+      }
+    },
+    {
+      "english": "A module for writing portable GUI applications with Python (v{version}) using Tk. Also known as Tkinter.",
+      "translations": {
         "it": "Un modulo per scrivere applicazioni GUI portabili con Python (v{version}) usando Tk; è conosciuto anche come Tkinter."
-    }
-  },
-
-  {
-    "english": "Interactive high-level object-oriented language (pyvenv binary, version {version})",
-    "translations": {
+      }
+    },
+    {
+      "english": "Interactive high-level object-oriented language (pyvenv binary, version {version})",
+      "translations": {
         "it": "linguaggio interattivo di alto livello orientato agli oggetti (binario pyvenv, versione {version})"
-    }
-  },
-
-  {
-    "english": "This package contains the pyvenv-{version} binary.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This package contains the pyvenv-{version} binary.",
+      "translations": {
         "it": "Questo pacchetto contiene il binario pyvenv-{version}."
-    }
-  },
-
-  {
-    "english": "This package contains development files. It is normally not used on it's own, but as a dependency of python{version}-dev.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This package contains development files. It is normally not used on it's own, but as a dependency of python{version}-dev.",
+      "translations": {
         "it": "Questo pacchetto contiene file di sviluppo. Normalmente non è usato da solo, ma come dipendenza di python{version}-dev."
-    }
-  },
-
-  {
-    "english": "Minimal subset of the Python language (version {version})",
-    "translations": {
+      }
+    },
+    {
+      "english": "Minimal subset of the Python language (version {version})",
+      "translations": {
         "it": "sottoinsieme minimale del linguaggio Python (versione {version})"
-    }
-  },
-
-  {
-    "english": "This package contains some essential modules. It is normally not used on it's own, but as a dependency of python{version}-minimal.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This package contains some essential modules. It is normally not used on it's own, but as a dependency of python{version}-minimal.",
+      "translations": {
         "it": "Questo pacchetto contiene alcuni moduli essenziali. Normalmente non è usato da solo, ma come dipendenza di python{version}-minimal."
-    }
-  },
-
-  {
-    "english": "Interactive high-level object-oriented language (standard library, version {version})",
-    "translations": {
+      }
+    },
+    {
+      "english": "Interactive high-level object-oriented language (standard library, version {version})",
+      "translations": {
         "it": "linguaggio interattivo di alto livello orientato agli oggetti (libreria standard, versione {version})"
-    }
-  },
-
-  {
-    "english": "This package contains Python {version}'s standard library. It is normally not used on its own, but as a dependency of python{version}.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This package contains Python {version}'s standard library. It is normally not used on its own, but as a dependency of python{version}.",
+      "translations": {
         "it": "Questo pacchetto contiene la libreria standard di Python {version}. Normalmente non viene usato da solo ma come dipendenza di python{version}."
-    }
-  },
-
-  {
-    "english": "Testsuite for the Python standard library (v{version})",
-    "translations": {
+      }
+    },
+    {
+      "english": "Testsuite for the Python standard library (v{version})",
+      "translations": {
         "it": "suite di test per la libreria Python standard (v{version})"
-    }
-  },
-
-  {
-    "english": "The complete testsuite for the Python standard library.  Note that a subset is found in the libpython{version}-stdlib package, which should be enough for other packages to use (please do not build-depend on this package, but file a bug report to include additional testsuite files in the libpython{version}-stdlib package).",
-    "translations": {
+      }
+    },
+    {
+      "english": "The complete testsuite for the Python standard library.  Note that a subset is found in the libpython{version}-stdlib package, which should be enough for other packages to use (please do not build-depend on this package, but file a bug report to include additional testsuite files in the libpython{version}-stdlib package).",
+      "translations": {
         "it": "La suite di test completa per la libreria Python standard. Notare che un sottoinsieme si trova nel pacchetto libpython{version}-stdlib, che dovrebbe essere sufficiente per l'uso da parte di altri pacchetti (non usare questo pacchetto come dipendenza di compilazione, ma segnalare un bug per includere file di suite di test aggiuntivi nel pacchetto libpython{version}-stdlib)."
-    }
-  },
-
-  {
-    "english": "Interactive high-level object-oriented language (version {version})",
-    "translations": {
+      }
+    },
+    {
+      "english": "Interactive high-level object-oriented language (version {version})",
+      "translations": {
         "it": "linguaggio interattivo di alto livello orientato agli oggetti (versione {version})"
-    }
-  },
-
-  {
-    "english": "This package is a dependency package, which depends on Debian's default Python 3 version's IDLE (currently v{version}).",
-    "translations": {
+      }
+    },
+    {
+      "english": "This package is a dependency package, which depends on Debian's default Python 3 version's IDLE (currently v{version}).",
+      "translations": {
         "it": "Questo è un pacchetto di dipendenze che dipende da IDLE per la versione di Python 3 predefinita in Debian (attualmente v{version})."
-    }
-  },
-
-  {
-    "english": "The package currently depends on {python_pack}. In the future, dependencies on jython (Python for a JVM) and ironpython (Python for Mono) may be added.",
-    "translations": {
+      }
+    },
+    {
+      "english": "The package currently depends on {python_pack}. In the future, dependencies on jython (Python for a JVM) and ironpython (Python for Mono) may be added.",
+      "translations": {
         "it": "Il pacchetto attualmente dipende da {python_pack}; in futuro potrebbero essere aggiunte le dipendenze da jython (Python per una JVM) e ironpython (Python per Mono)."
-    }
-  },
-
-  {
-    "english": "The package currently depends on {python_pack1} and {python_pack2}. In the future, dependencies on jython (Python for a JVM) and ironpython (Python for Mono) may be added.",
-    "translations": {
+      }
+    },
+    {
+      "english": "The package currently depends on {python_pack1} and {python_pack2}. In the future, dependencies on jython (Python for a JVM) and ironpython (Python for Mono) may be added.",
+      "translations": {
         "it": "Il pacchetto attualmente dipende da {python_pack1} e {python_pack2}; in futuro potrebbero essere aggiunte le dipendenze da jython (Python per una JVM) e ironpython (Python per Mono)."
-    }
-  },
-
-  {
-    "english": "This package is a dependency package, which depends on Debian's default Python 3 version's standard library (currently v{version}).",
-    "translations": {
+      }
+    },
+    {
+      "english": "This package is a dependency package, which depends on Debian's default Python 3 version's standard library (currently v{version}).",
+      "translations": {
         "it": "Questo è un pacchetto di dipendenze che dipende dalla libreria standard per la versione di Python 3 predefinita in Debian (attualmente v{version})."
-    }
-  },
-
-  {
-    "english": "This package is a dependency package, which depends on Debian's default Python 3 version (currently v{version}).",
-    "translations": {
+      }
+    },
+    {
+      "english": "This package is a dependency package, which depends on Debian's default Python 3 version (currently v{version}).",
+      "translations": {
         "it": "Questo è un pacchetto di dipendenze che dipende dalla versione di Python 3 predefinita in Debian (attualmente v{version})."
-    }
-  },
-
-  {
-    "english": "debug build of the Python 3 Interpreter (version {version})",
-    "translations": {
+      }
+    },
+    {
+      "english": "debug build of the Python 3 Interpreter (version {version})",
+      "translations": {
         "it": "compilazione di debug dell'interprete Python 3 (versione {version})"
-    }
-  },
-
-  {
-    "english": "Python 3 interpreter configured with --pydebug. Dynamically loaded modules are searched in /usr/lib/python{version}/lib-dynload/debug first.",
-    "translations": {
+      }
+    },
+    {
+      "english": "Python 3 interpreter configured with --pydebug. Dynamically loaded modules are searched in /usr/lib/python{version}/lib-dynload/debug first.",
+      "translations": {
         "it": "Interprete Python 3 configurato con --pydebug. I moduli caricati dinamicamente vengono cercati prima in /usr/lib/python{version}/lib-dynload/debug."
-    }
-  },
-
-  {
-    "english": "This package is a dependency package, which depends on Debian's default Python 3 version's headers (currently v{version}).",
-    "translations": {
+      }
+    },
+    {
+      "english": "This package is a dependency package, which depends on Debian's default Python 3 version's headers (currently v{version}).",
+      "translations": {
         "it": "Questo è un pacchetto di dipendenze che dipende dagli header per la versione di Python 3 predefinita in Debian (attualmente v{version})."
-    }
-  },
-
-  {
-    "english": "This package is a dependency package, which depends on Debian's default Python 3 version's examples (currently v{version}).",
-    "translations": {
+      }
+    },
+    {
+      "english": "This package is a dependency package, which depends on Debian's default Python 3 version's examples (currently v{version}).",
+      "translations": {
         "it": "Questo è un pacchetto di dipendenze che dipende dagli esempi per la versione di Python 3 predefinita in Debian (attualmente v{version})."
-    }
-  },
-
-  {
-    "english": "This package depends on Debian's default python 3 version's full standard library (currently v{version}.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This package depends on Debian's default python 3 version's full standard library (currently v{version}.",
+      "translations": {
         "it": "Questo è un pacchetto di dipendenze che dipende dalla libreria standard completa della versione di Python 3 predefinita in Debian (attualmente v{version})."
-    }
-  },
-
-  {
-    "english": "This package is a dependency package, which depends on Debian's default Python 3 version's venv module (currently v{version}).",
-    "translations": {
+      }
+    },
+    {
+      "english": "This package is a dependency package, which depends on Debian's default Python 3 version's venv module (currently v{version}).",
+      "translations": {
         "it": "Questo è un pacchetto di dipendenze che dipende dal modulo venv per la versione di Python 3 predefinita in Debian (attualmente v{version})."
-    }
-  },
-
-  {
-    "english": "This package contains the documentation for {package}.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This package contains the documentation for {package}.",
+      "translations": {
         "it": "Questo pacchetto contiene la documentazione per {package}."
-    }
-  },
-
-  {
-    "english": "This package provides the documentation for {package}.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This package provides the documentation for {package}.",
+      "translations": {
         "it": "Questo pacchetto fornisce la documentazione per {package}."
-    }
-  },
-
-   {
-    "english": "This package contains the source for the Rust {crate} crate, packaged by debcargo for use with cargo and dh-cargo.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This package contains the source for the Rust {crate} crate, packaged by debcargo for use with cargo and dh-cargo.",
+      "translations": {
         "it": "Questo pacchetto contiene il codice sorgente per il crate {crate} per Rust, pacchettizzato da debcargo per un uso con cargo e dh-cargo."
-    }
-  },
-
-  {
-    "english": "This metapackage enables feature {feature} for the Rust {crate} crate, by pulling in any additional dependencies needed by that feature.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This metapackage enables feature {feature} for the Rust {crate} crate, by pulling in any additional dependencies needed by that feature.",
+      "translations": {
         "it": "Questo metapacchetto abilita la funzionalità {feature} per il crate {crate} per Rust, richiamando qualunque dipendenza aggiuntiva necessaria a tale funzionalità."
-    }
-  },
-
-  {
-    "english": "This package contains the source for the Rust {crate} crate, packaged for use with cargo and dh-cargo.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This package contains the source for the Rust {crate} crate, packaged for use with cargo and dh-cargo.",
+      "translations": {
         "it": "Questo pacchetto contiene il codice sorgente per il crate {crate} per Rust, pacchettizzato per un uso con cargo e dh-cargo."
-    }
-  },
-
-  {
-    "english": "Source code for Debianized Rust crate {crate}",
-    "translations": {
+      }
+    },
+    {
+      "english": "Source code for Debianized Rust crate {crate}",
+      "translations": {
         "it": "Codice sorgente per il crate Rust {crate} debianizzato."
-    }
-  },
-
-  {
-    "english": "shared library libpgtypes for PostgreSQL {version}",
-    "translations": {
+      }
+    },
+    {
+      "english": "shared library libpgtypes for PostgreSQL {version}",
+      "translations": {
         "it": "libreria libpgtypes condivisa per PostgreSQL {version}"
-    }
-  },
-
-  {
-    "english": "This package provides the database server for PostgreSQL {version}.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This package provides the database server for PostgreSQL {version}.",
+      "translations": {
         "it": "Questo pacchetto fornisce il server di database per PostgreSQL {version}."
-    }
-  },
-
-  {
-    "english": "front-end programs for PostgreSQL {version}",
-    "translations": {
+      }
+    },
+    {
+      "english": "front-end programs for PostgreSQL {version}",
+      "translations": {
         "it": "programmi frontend per PostgreSQL {version}"
-    }
-  },
-
-  {
-    "english": "This is the client package for PostgreSQL {version}. If you install PostgreSQL {version} on a standalone machine, you need the server package postgresql-{version}, too. On a network, you can install this package on many client machines, while the server package may be installed on only one machine.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This is the client package for PostgreSQL {version}. If you install PostgreSQL {version} on a standalone machine, you need the server package postgresql-{version}, too. On a network, you can install this package on many client machines, while the server package may be installed on only one machine.",
+      "translations": {
         "it": " Questo è il pacchetto client per PostgreSQL {version}. Se si installa PostgreSQL {version} su una macchina indipendente, è necessario anche il pacchetto server postgresql-{version}. Su una rete, questo pacchetto può essere installato su molte macchine client, mentre il pacchetto server può essere installato su una sola macchina."
-    }
-  },
-
-  {
-    "english": "This package contains all README files, user manual, and examples for PostgreSQL {version}. The manual is in HTML format.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This package contains all README files, user manual, and examples for PostgreSQL {version}. The manual is in HTML format.",
+      "translations": {
         "it": "Questo pacchetto contiene tutti i file README, il manuale utente e gli esempi per PostgreSQL {version}. Il manuale è in formato HTML."
-    }
-  },
-
-  {
-    "english": "PL/Perl procedural language for PostgreSQL {version}",
-    "translations": {
+      }
+    },
+    {
+      "english": "PL/Perl procedural language for PostgreSQL {version}",
+      "translations": {
         "it": "linguaggio procedurale PL/Perl per PostgreSQL {version}"
-    }
-  },
-
-  {
-    "english": " PL/Perl enables an SQL developer to write procedural language functions for PostgreSQL {version} in Perl.  You need this package if you have any PostgreSQL {version} functions that use the languages plperl or plperlu.",
-    "translations": {
+      }
+    },
+    {
+      "english": " PL/Perl enables an SQL developer to write procedural language functions for PostgreSQL {version} in Perl.  You need this package if you have any PostgreSQL {version} functions that use the languages plperl or plperlu.",
+      "translations": {
         "it": " PL/Perl permette ad uno sviluppatore SQL di scrivere funzioni in linguaggio procedurale per PostgreSQL {version} in Perl. Si ha bisogno di questo pacchetto se si ha qualche funzione PostgreSQL {version} che utilizza i linguaggi plperl o plperlu."
-    }
-  },
-
-  {
-    "english": "PL/Python 3 procedural language for PostgreSQL {version}",
-    "translations": {
+      }
+    },
+    {
+      "english": "PL/Python 3 procedural language for PostgreSQL {version}",
+      "translations": {
         "it": "linguaggio procedurale PL/Python 3 per PostgreSQL {version}"
-    }
-  },
-
-  {
-    "english": "PL/Python 3 enables an SQL developer to write procedural language functions for PostgreSQL {version} in Python 3.  You need this package if you have any PostgreSQL {version} functions that use the languages plpython3 or plpython3u.",
-    "translations": {
+      }
+    },
+    {
+      "english": "PL/Python 3 enables an SQL developer to write procedural language functions for PostgreSQL {version} in Python 3.  You need this package if you have any PostgreSQL {version} functions that use the languages plpython3 or plpython3u.",
+      "translations": {
         "it": " PL/Python 3 permette ad uno sviluppatore SQL di scrivere funzioni in linguaggio procedurale per PostgreSQL {version} in Python 3. Si ha bisogno di questo pacchetto se si ha qualche funzione PostgreSQL {version} che utilizza i linguaggi plpython3 o plpython3u."
-    }
-  },
-
-  {
-    "english": "PL/Tcl procedural language for PostgreSQL {version}",
-    "translations": {
+      }
+    },
+    {
+      "english": "PL/Tcl procedural language for PostgreSQL {version}",
+      "translations": {
         "it": "linguaggio procedurale PL/Tcl per PostgreSQL {version}"
-    }
-  },
-
-  {
-    "english": " PL/Tcl enables an SQL developer to write procedural language functions for PostgreSQL {version} in Tcl.  You need this package if you have any PostgreSQL {version} functions that use the languages pltcl or pltclu.",
-    "translations": {
+      }
+    },
+    {
+      "english": " PL/Tcl enables an SQL developer to write procedural language functions for PostgreSQL {version} in Tcl.  You need this package if you have any PostgreSQL {version} functions that use the languages pltcl or pltclu.",
+      "translations": {
         "it": "PL/Tcl permette ad uno sviluppatore SQL di scrivere funzioni in linguaggio procedurale per PostgreSQL {version} usando Tcl. Questo pacchetto è necessario se si hanno funzioni PostgreSQL {version} che usano i linguaggi pltcl o pltclu."
-    }
-  },
-
-  {
-    "english": "development files for PostgreSQL {version} server-side programming",
-    "translations": {
+      }
+    },
+    {
+      "english": "development files for PostgreSQL {version} server-side programming",
+      "translations": {
         "it": "file di sviluppo per programmazione lato server di PostgreSQL {version}"
-    }
-  },
-
-  {
-    "english": "This package contains the PostgreSQL {version} extension.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This package contains the PostgreSQL {version} extension.",
+      "translations": {
         "it": "Questo pacchetto contiene l'estensione per PostgreSQL {version}."
-    }
-  },
-
-  {
-    "english": "IPv4 and IPv6 types for PostgreSQL {version}",
-    "translations": {
+      }
+    },
+    {
+      "english": "IPv4 and IPv6 types for PostgreSQL {version}",
+      "translations": {
         "it": "tipi IPv4 e IPv6 per PostgreSQL {version}"
-    }
-  },
-
-  {
-    "english": "Oracle support functions for PostgreSQL {version}",
-    "translations": {
+      }
+    },
+    {
+      "english": "Oracle support functions for PostgreSQL {version}",
+      "translations": {
         "it": "funzioni per supporto di Oracle per PostgreSQL {version}"
-    }
-  },
-
-  {
-    "english": "arbitrary precision integers and rationals for PostgreSQL 17",
-    "translations": {
+      }
+    },
+    {
+      "english": "arbitrary precision integers and rationals for PostgreSQL 17",
+      "translations": {
         "it": "interi e razionali a precisione arbitraria per PostgreSQL 17"
-    }
-  },
-
-  {
-    "english": "Unit testing framework extension for PostgreSQL {version}",
-    "translations": {
+      }
+    },
+    {
+      "english": "Unit testing framework extension for PostgreSQL {version}",
+      "translations": {
         "it": "estensione per l'infrastruttura di test di unità per PostgreSQL {version}"
-    }
-  },
-
-  {
-    "english": "This package contains the extension for PostgreSQL {version}.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This package contains the extension for PostgreSQL {version}.",
+      "translations": {
         "it": "Questo pacchetto contiene l'estensione per PostgreSQL {version}."
-    }
-  },
-
-  {
-    "english": "Lua procedural language for PostgreSQL {version}",
-    "translations": {
+      }
+    },
+    {
+      "english": "Lua procedural language for PostgreSQL {version}",
+      "translations": {
         "it": "linguaggio procedurale Lua per PostgreSQL {version}"
-    }
-  },
-
-  {
-    "english": "database partitioning system for PostgreSQL {version}",
-    "translations": {
+      }
+    },
+    {
+      "english": "database partitioning system for PostgreSQL {version}",
+      "translations": {
         "it": "sistema di partizionamento per database per PostgreSQL {version}"
-    }
-  },
-
-  {
-    "english": "PL/sh procedural language for PostgreSQL {version}",
-    "translations": {
+      }
+    },
+    {
+      "english": "PL/sh procedural language for PostgreSQL {version}",
+      "translations": {
         "it": "linguaggio procedurale PL/sh per PostgreSQL {version}"
-    }
-  },
-
-  {
-    "english": "PL/sh enables an SQL developer to write procedural language functions for PostgreSQL {version} in a shell of his choice.  You need this package if you have any PostgreSQL {version} functions that use the language plsh.",
-    "translations": {
+      }
+    },
+    {
+      "english": "PL/sh enables an SQL developer to write procedural language functions for PostgreSQL {version} in a shell of his choice.  You need this package if you have any PostgreSQL {version} functions that use the language plsh.",
+      "translations": {
         "it": "PL/sh permette ad uno sviluppatore SQL di scrivere funzioni in linguaggio procedurale per PostgreSQL {version} in una shell a sua scelta. Questo pacchetto è necessario se si hanno funzioni PostgreSQL {version} che usano il linguaggio plsh."
-    }
-  },
-
-  {
-    "english": "PostgreSQL Workload Analyzer -- PostgreSQL {version} extension",
-    "translations": {
+      }
+    },
+    {
+      "english": "PostgreSQL Workload Analyzer -- PostgreSQL {version} extension",
+      "translations": {
         "it": "analizzatore di carico di lavoro per PostgreSQL -- estensione per PostgreSQL {version}"
-    }
-  },
-
-  {
-    "english": "PostgreSQL {version} extension used for indexing the sky",
-    "translations": {
+      }
+    },
+    {
+      "english": "PostgreSQL {version} extension used for indexing the sky",
+      "translations": {
         "it": "estensione per PostgreSQL {version} usata per indicizzare il cielo"
-    }
-  },
-
-  {
-    "english": "This package contains the pg_repack program and the server extension for PostgreSQL {version}.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This package contains the pg_repack program and the server extension for PostgreSQL {version}.",
+      "translations": {
         "it": "Questo pacchetto contiene il programma pg_repack e l'estensione server per PostgreSQL {version}."
-    }
-  },
-
-  {
-    "english": "This metapackage depends on the PgRouting package for PostgreSQL {version}.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This metapackage depends on the PgRouting package for PostgreSQL {version}.",
+      "translations": {
         "it": "Questo metapacchetto dipende dal pacchetto PgRouting per PostgreSQL {version}."
-    }
-  },
-
-  {
-    "english": "This metapackage depends on the PgRouting scripts package for PostgreSQL {version}.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This metapackage depends on the PgRouting scripts package for PostgreSQL {version}.",
+      "translations": {
         "it": "Questo metapacchetto dipende dal pacchetto di script per PgRouting per PostgreSQL {version}."
-    }
-  },
-
-  {
-    "english": "This metapackage depends on the PostGIS package for PostgreSQL {version}.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This metapackage depends on the PostGIS package for PostgreSQL {version}.",
+      "translations": {
         "it": "Questo metapacchetto dipende dal pacchetto di PostGIS per PostgreSQL {version}."
-    }
-  },
-
-  {
-    "english": "This metapackage depends on the PostGIS scripts package for PostgreSQL {version}.",
-    "translations": {
+      }
+    },
+    {
+      "english": "This metapackage depends on the PostGIS scripts package for PostgreSQL {version}.",
+      "translations": {
         "it": "Questo metapacchetto dipende dal pacchetto degli script PostGIS per PostgreSQL {version}."
+      }
     }
-  }
-]
+  ]
+}
