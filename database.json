@@ -396,5 +396,208 @@
     "translations": {
         "it": "Codice sorgente per il crate Rust {crate} debianizzato."
     }
+  },
+
+  {
+    "english": "shared library libpgtypes for PostgreSQL {version}",
+    "translations": {
+        "it": "libreria libpgtypes condivisa per PostgreSQL {version}"
+    }
+  },
+
+  {
+    "english": "This package provides the database server for PostgreSQL {version}.",
+    "translations": {
+        "it": "Questo pacchetto fornisce il server di database per PostgreSQL {version}."
+    }
+  },
+
+  {
+    "english": "front-end programs for PostgreSQL {version}",
+    "translations": {
+        "it": "programmi frontend per PostgreSQL {version}"
+    }
+  },
+
+  {
+    "english": "This is the client package for PostgreSQL {version}. If you install PostgreSQL {version} on a standalone machine, you need the server package postgresql-{version}, too. On a network, you can install this package on many client machines, while the server package may be installed on only one machine.",
+    "translations": {
+        "it": " Questo è il pacchetto client per PostgreSQL {version}. Se si installa PostgreSQL {version} su una macchina indipendente, è necessario anche il pacchetto server postgresql-{version}. Su una rete, questo pacchetto può essere installato su molte macchine client, mentre il pacchetto server può essere installato su una sola macchina."
+    }
+  },
+
+  {
+    "english": "This package contains all README files, user manual, and examples for PostgreSQL {version}. The manual is in HTML format.",
+    "translations": {
+        "it": "Questo pacchetto contiene tutti i file README, il manuale utente e gli esempi per PostgreSQL {version}. Il manuale è in formato HTML."
+    }
+  },
+
+  {
+    "english": "PL/Perl procedural language for PostgreSQL {version}",
+    "translations": {
+        "it": "linguaggio procedurale PL/Perl per PostgreSQL {version}"
+    }
+  },
+
+  {
+    "english": " PL/Perl enables an SQL developer to write procedural language functions for PostgreSQL {version} in Perl.  You need this package if you have any PostgreSQL {version} functions that use the languages plperl or plperlu.",
+    "translations": {
+        "it": " PL/Perl permette ad uno sviluppatore SQL di scrivere funzioni in linguaggio procedurale per PostgreSQL {version} in Perl. Si ha bisogno di questo pacchetto se si ha qualche funzione PostgreSQL {version} che utilizza i linguaggi plperl o plperlu."
+    }
+  },
+
+  {
+    "english": "PL/Python 3 procedural language for PostgreSQL {version}",
+    "translations": {
+        "it": "linguaggio procedurale PL/Python 3 per PostgreSQL {version}"
+    }
+  },
+
+  {
+    "english": "PL/Python 3 enables an SQL developer to write procedural language functions for PostgreSQL {version} in Python 3.  You need this package if you have any PostgreSQL {version} functions that use the languages plpython3 or plpython3u.",
+    "translations": {
+        "it": " PL/Python 3 permette ad uno sviluppatore SQL di scrivere funzioni in linguaggio procedurale per PostgreSQL {version} in Python 3. Si ha bisogno di questo pacchetto se si ha qualche funzione PostgreSQL {version} che utilizza i linguaggi plpython3 o plpython3u."
+    }
+  },
+
+  {
+    "english": "PL/Tcl procedural language for PostgreSQL {version}",
+    "translations": {
+        "it": "linguaggio procedurale PL/Tcl per PostgreSQL {version}"
+    }
+  },
+
+  {
+    "english": " PL/Tcl enables an SQL developer to write procedural language functions for PostgreSQL {version} in Tcl.  You need this package if you have any PostgreSQL {version} functions that use the languages pltcl or pltclu.",
+    "translations": {
+        "it": "PL/Tcl permette ad uno sviluppatore SQL di scrivere funzioni in linguaggio procedurale per PostgreSQL {version} usando Tcl. Questo pacchetto è necessario se si hanno funzioni PostgreSQL {version} che usano i linguaggi pltcl o pltclu."
+    }
+  },
+
+  {
+    "english": "development files for PostgreSQL {version} server-side programming",
+    "translations": {
+        "it": "file di sviluppo per programmazione lato server di PostgreSQL {version}"
+    }
+  },
+
+  {
+    "english": "This package contains the PostgreSQL {version} extension.",
+    "translations": {
+        "it": "Questo pacchetto contiene l'estensione per PostgreSQL {version}."
+    }
+  },
+
+  {
+    "english": "IPv4 and IPv6 types for PostgreSQL {version}",
+    "translations": {
+        "it": "tipi IPv4 e IPv6 per PostgreSQL {version}"
+    }
+  },
+
+  {
+    "english": "Oracle support functions for PostgreSQL {version}",
+    "translations": {
+        "it": "funzioni per supporto di Oracle per PostgreSQL {version}"
+    }
+  },
+
+  {
+    "english": "arbitrary precision integers and rationals for PostgreSQL 17",
+    "translations": {
+        "it": "interi e razionali a precisione arbitraria per PostgreSQL 17"
+    }
+  },
+
+  {
+    "english": "Unit testing framework extension for PostgreSQL {version}",
+    "translations": {
+        "it": "estensione per l'infrastruttura di test di unità per PostgreSQL {version}"
+    }
+  },
+
+  {
+    "english": "This package contains the extension for PostgreSQL {version}.",
+    "translations": {
+        "it": "Questo pacchetto contiene l'estensione per PostgreSQL {version}."
+    }
+  },
+
+  {
+    "english": "Lua procedural language for PostgreSQL {version}",
+    "translations": {
+        "it": "linguaggio procedurale Lua per PostgreSQL {version}"
+    }
+  },
+
+  {
+    "english": "database partitioning system for PostgreSQL {version}",
+    "translations": {
+        "it": "sistema di partizionamento per database per PostgreSQL {version}"
+    }
+  },
+
+  {
+    "english": "PL/sh procedural language for PostgreSQL {version}",
+    "translations": {
+        "it": "linguaggio procedurale PL/sh per PostgreSQL {version}"
+    }
+  },
+
+  {
+    "english": "PL/sh enables an SQL developer to write procedural language functions for PostgreSQL {version} in a shell of his choice.  You need this package if you have any PostgreSQL {version} functions that use the language plsh.",
+    "translations": {
+        "it": "PL/sh permette ad uno sviluppatore SQL di scrivere funzioni in linguaggio procedurale per PostgreSQL {version} in una shell a sua scelta. Questo pacchetto è necessario se si hanno funzioni PostgreSQL {version} che usano il linguaggio plsh."
+    }
+  },
+
+  {
+    "english": "PostgreSQL Workload Analyzer -- PostgreSQL {version} extension",
+    "translations": {
+        "it": "analizzatore di carico di lavoro per PostgreSQL -- estensione per PostgreSQL {version}"
+    }
+  },
+
+  {
+    "english": "PostgreSQL {version} extension used for indexing the sky",
+    "translations": {
+        "it": "estensione per PostgreSQL {version} usata per indicizzare il cielo"
+    }
+  },
+
+  {
+    "english": "This package contains the pg_repack program and the server extension for PostgreSQL {version}.",
+    "translations": {
+        "it": "Questo pacchetto contiene il programma pg_repack e l'estensione server per PostgreSQL {version}."
+    }
+  },
+
+  {
+    "english": "This metapackage depends on the PgRouting package for PostgreSQL {version}.",
+    "translations": {
+        "it": "Questo metapacchetto dipende dal pacchetto PgRouting per PostgreSQL {version}."
+    }
+  },
+
+  {
+    "english": "This metapackage depends on the PgRouting scripts package for PostgreSQL {version}.",
+    "translations": {
+        "it": "Questo metapacchetto dipende dal pacchetto di script per PgRouting per PostgreSQL {version}."
+    }
+  },
+
+  {
+    "english": "This metapackage depends on the PostGIS package for PostgreSQL {version}.",
+    "translations": {
+        "it": "Questo metapacchetto dipende dal pacchetto di PostGIS per PostgreSQL {version}."
+    }
+  },
+
+  {
+    "english": "This metapackage depends on the PostGIS scripts package for PostgreSQL {version}.",
+    "translations": {
+        "it": "Questo metapacchetto dipende dal pacchetto degli script PostGIS per PostgreSQL {version}."
+    }
   }
 ]
