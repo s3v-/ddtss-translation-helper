@@ -404,7 +404,7 @@ function toggleSidePanel() {
       if (sim === 100) {
         output +=
 		  `<div class="ddtss-box-text">` +
-		  `Traduzione corretta</div></div>`;
+		  `   Traduzione corretta</div></div>`;
       } else {
         const diff = generateLineDiffWithHighlight(itaNorm, suggNorm);
 
