@@ -368,5 +368,33 @@
     "translations": {
         "it": "Questo pacchetto fornisce la documentazione per {package}."
     }
+  },
+
+   {
+    "english": "This package contains the source for the Rust {crate} crate, packaged by debcargo for use with cargo and dh-cargo.",
+    "translations": {
+        "it": "Questo pacchetto contiene il codice sorgente per il crate {crate} per Rust, pacchettizzato da debcargo per un uso con cargo e dh-cargo."
+    }
+  },
+
+  {
+    "english": "This metapackage enables feature {feature} for the Rust {crate} crate, by pulling in any additional dependencies needed by that feature.",
+    "translations": {
+        "it": "Questo metapacchetto abilita la funzionalità {feature} per il crate {crate} per Rust, richiamando qualunque dipendenza aggiuntiva necessaria a tale funzionalità."
+    }
+  },
+
+  {
+    "english": "This package contains the source for the Rust {crate} crate, packaged for use with cargo and dh-cargo.",
+    "translations": {
+        "it": "Questo pacchetto contiene il codice sorgente per il crate {crate} per Rust, pacchettizzato per un uso con cargo e dh-cargo."
+    }
+  },
+
+  {
+    "english": "Source code for Debianized Rust crate {crate}",
+    "translations": {
+        "it": "Codice sorgente per il crate Rust {crate} debianizzato."
+    }
   }
 ]
