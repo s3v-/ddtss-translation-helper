@@ -20,6 +20,11 @@
   },
 
   {
+    "english": "GNU {compiler} compiler (cross compiler for {arch})",
+    "traduzione": "compilatore GNU {compiler} (cross-compilatore per {arch})"
+  },
+
+  {
     "english": "This is the GNU {compiler} compiler, a fairly portable optimizing compiler for {compiler}.",
     "traduzione": "Il compilatore GNU {compiler}, un compilatore largamente portabile e ottimizzante per {compiler}."
   },
