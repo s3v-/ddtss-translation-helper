@@ -80,6 +80,15 @@ function escapeRegex(str) {
 
 
 // ===============================
+// Rileva la lingua dall'URL (min 2, max 5 caratteri)
+// ===============================
+function detectLanguageFromURL() {
+  const match = window.location.href.match(/index\.cgi\/([A-Za-z_]{2,5})\//);
+  return match ? match[1] : "en";
+}
+
+
+// ===============================
 // Diff per linea con highlight interno
 // ===============================
 function generateLineDiffWithHighlight(oldText, newText) {
@@ -128,11 +137,13 @@ function generateLineDiffWithHighlight(oldText, newText) {
 function getSuggestion(englishRaw) {
   if (!db) return null;
 
+  const lang = detectLanguageFromURL();
+
   // Normalizza l'inglese dalla pagina
   const english = englishRaw.replace(/\s*\n\s*/g, " ").trim();
 
   for (const entry of db) {
-    if (!entry || !entry.english || !entry.traduzione) continue;
+    if (!entry || !entry.english || !entry.translations) continue;
 
     const entryEng = entry.english;
 
@@ -150,7 +161,7 @@ function getSuggestion(englishRaw) {
       const match = english.match(regex);
 
       if (match) {
-        let trad = entry.traduzione;
+        let trad = entry.translations[lang];
 
         placeholders.forEach((ph, i) => {
           let value = match[i + 1];
@@ -170,7 +181,7 @@ function getSuggestion(englishRaw) {
 
     // Match esatto
     if (entryEng === english) {
-      return entry.traduzione;
+      return entry.translations[lang];
     }
   }
 
