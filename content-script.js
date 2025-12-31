@@ -519,14 +519,6 @@ document.addEventListener("click", (e) => {
   }
 });
 
-browser.runtime.onMessage.addListener((msg) => {
-  console.log("MESSAGGIO RICEVUTO NEL CONTENT-SCRIPT:", msg);
-  if (msg.action === "toggle-panel") {
-    console.log("→ toggleSidePanel() chiamato");
-    toggleSidePanel();
-  }
-});
-
 // ===============================
 // Apertura automatica del pannello
 // ===============================
