@@ -17,9 +17,7 @@
     "default_title": "DDTSS Helper"
   },
 
-  "background": {
-    "scripts": ["background.js"]
-  },
+  "background": {},
 
   "web_accessible_resources": [
     "database.json"
