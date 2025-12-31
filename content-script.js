@@ -15,6 +15,20 @@ let db = null;
 
 
 // ===============================
+// Aspetta che il database sia caricato
+// ===============================
+function waitForDB() {
+  return new Promise(resolve => {
+    const check = () => {
+      if (db) return resolve();
+      setTimeout(check, 50);
+    };
+    check();
+  });
+}
+
+
+// ===============================
 // Similarità (Levenshtein)
 // ===============================
 function similarity(a, b) {
@@ -522,5 +536,7 @@ document.addEventListener("click", (e) => {
 // ===============================
 // Apertura automatica del pannello
 // ===============================
-toggleSidePanel();
+waitForDB().then(() => {
+  toggleSidePanel();
+});
 
