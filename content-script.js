@@ -1,13 +1,27 @@
 // ===============================
+// STATE CENTRALE
+// ===============================
+const state = {
+  db: null,
+  english: {
+    title: null,
+    body: null
+  },
+  italian: {
+    title: null,
+    body: null
+  }
+};
+
+// ===============================
 // Caricamento database.json
 // ===============================
-let db = null;
 
 (async () => {
   try {
     const url = browser.runtime.getURL("database.json");
-    db = await fetch(url).then(r => r.json());
-    console.log("Database caricato:", db);
+    state.db = await fetch(url).then(r => r.json());
+    console.log("Database caricato:", state.db);
   } catch (err) {
     console.error("Errore nel caricamento del database:", err);
   }
@@ -135,14 +149,14 @@ function generateLineDiffWithHighlight(oldText, newText) {
 // Motore di suggerimento
 // ===============================
 function getSuggestion(englishRaw) {
-  if (!db) return null;
+  if (!state.db) return null;
 
   const lang = detectLanguageFromURL();
 
   // Normalizza l'inglese dalla pagina
   const english = englishRaw.replace(/\s*\n\s*/g, " ").trim();
 
-  for (const entry of db.patterns) {
+  for (const entry of state.db.patterns) {
     if (!entry || !entry.english || !entry.translations) continue;
 
     const entryEng = entry.english;
@@ -168,8 +182,8 @@ function getSuggestion(englishRaw) {
       let value = match[i + 1].trim();
 
       // Traduzione tramite mappa globale
-      if (db.globals && db.globals[ph] && db.globals[ph][value]) {
-        value = db.globals[ph][value];
+      if (state.db.globals && state.db.globals[ph] && state.db.globals[ph][value]) {
+        value = state.db.globals[ph][value];
       }
 
       trad = trad.replace("{" + ph + "}", value);
@@ -300,9 +314,9 @@ function toggleSidePanel() {
   // ===============================
   // SUGGERIMENTO TITOLO
   // ===============================
-  if (englishTitle && italianTitle) {
-    const ita = italianTitle.value.trim();
-    const eng = englishTitle;
+  if (state.english.title && state.italian.title) {
+    const ita = state.italian.title.value.trim();
+    const eng = state.english.title;
     const suggestion = getSuggestion(eng);
 
     output += `<div class="ddtss-section-title">Titolo</div>`;
@@ -352,12 +366,12 @@ function toggleSidePanel() {
   // ===============================
   // SUGGERIMENTI TESTO (CORPO)
   // ===============================
-  if (englishBody && italianBodyElement) {
-    const englishParagraphs = englishBody
+  if (state.english.body && state.italian.body) {
+    const englishParagraphs = state.english.body
       .split(/\n\.\n/)
       .map(p => p.trim());
 
-    const italianParagraphs = italianBodyElement.value
+    const italianParagraphs = state.italian.body.value
       .split(/\n\.\n/)
       .map(p => p.trim());
 
@@ -433,16 +447,25 @@ function toggleSidePanel() {
 // ===============================
 // Estrazione campi dal DDTSS
 // ===============================
-const allTT = [...document.querySelectorAll("tt")];
-const englishTitle = allTT.length ? allTT[allTT.length - 1].innerText.trim() : null;
+function extractDDTSSFields() {
+  const allTT = [...document.querySelectorAll("tt")];
 
-const italianTitle = document.querySelector("input[name='short']");
-const englishBodyElement = document.querySelector("li pre");
+  state.english.title =
+    allTT.length ? allTT[allTT.length - 1].innerText.trim() : null;
 
-let englishBody = englishBodyElement ? englishBodyElement.innerText : null;
-if (englishBody) englishBody = removeOneLeadingSpace(englishBody).trim();
+  state.italian.title = document.querySelector("input[name='short']");
 
-const italianBodyElement = document.querySelector("textarea[name='long']");
+  const engBodyEl = document.querySelector("li pre");
+  state.english.body = engBodyEl ? engBodyEl.innerText : null;
+  if (state.english.body) {
+    state.english.body = removeOneLeadingSpace(state.english.body).trim();
+  }
+
+  state.italian.body = document.querySelector("textarea[name='long']");
+}
+
+// estrazione iniziale
+extractDDTSSFields();
 
 // ===============================
 // Funzione per applicare modifiche al DDTSS
@@ -475,10 +498,10 @@ document.addEventListener("click", (e) => {
   const index = parseInt(e.target.dataset.index, 10);
   const suggestion = decodeURIComponent(e.target.dataset.suggestion);
 
-  const paragraphs = italianBodyElement.value.split(/\n\.\n/);
+  const paragraphs = state.italian.body.value.split(/\n\.\n/);
   paragraphs[index] = wrap75(suggestion);
 
-  applyDDTSSChange(italianBodyElement, paragraphs.join("\n.\n"));
+  applyDDTSSChange(state.italian.body, paragraphs.join("\n.\n"));
   refreshSidePanel();
 
 });
@@ -491,10 +514,10 @@ document.addEventListener("click", (e) => {
 
   const index = parseInt(e.target.dataset.index, 10);
 
-  const paragraphs = italianBodyElement.value.split(/\n\.\n/);
+  const paragraphs = state.italian.body.value.split(/\n\.\n/);
   paragraphs[index] = wrap75(paragraphs[index]);
 
-  applyDDTSSChange(italianBodyElement, paragraphs.join("\n.\n"));
+  applyDDTSSChange(state.italian.body, paragraphs.join("\n.\n"));
   refreshSidePanel();
 
 });
@@ -508,7 +531,7 @@ document.addEventListener("click", (e) => {
 
   const suggestion = decodeURIComponent(e.target.dataset.suggestion);
 
-  applyDDTSSChange(italianTitle, suggestion);
+  applyDDTSSChange(state.italian.title, suggestion);
   refreshSidePanel();
 
 });
@@ -520,9 +543,14 @@ document.addEventListener("click", (e) => {
 });
 
 // ===============================
-// Inizializzazione automatica pannello
+// Inizializzazione pannello
 // ===============================
-if (englishBodyElement || italianBodyElement || englishTitle || italianTitle) {
+if (
+  state.english.body ||
+  state.italian.body ||
+  state.english.title ||
+  state.italian.title
+) {
   createSidePanel();
 }
 
