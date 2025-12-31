@@ -83,6 +83,18 @@
   },
   "patterns": [
     {
+      "english": "Apertium translation data for the {lang}-{lang} pair",
+      "translations": {
+        "it": "dati di traduzione per Apertium per la coppia {lang}-{lang}"
+      }
+    },
+    {
+      "english": "Data package providing Apertium language resources for translating between the {lang} and {lang} languages.",
+      "translations": {
+        "it": "Pacchetto di dati che fornisce risorse di lingua per Apertium per tradurre tra le lingue {lang} e {lang}."
+      }
+    },
+    {
       "english": "{lang}-{lang} dictionary for the dict server/client",
       "translations": {
         "it": "dizionario {lang}-{lang} per client/server dict"
