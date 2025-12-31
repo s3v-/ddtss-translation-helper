@@ -193,6 +193,8 @@ function createSidePanel() {
   panel.id = "ddtss-sidepanel";
 
   panel.innerHTML = `
+    <div id="ddtss-tab">⟨</div>
+
     <div id="ddtss-sidepanel-header">
       <h2>Suggerimenti</h2>
       <div id="ddtss-sidepanel-buttons">
@@ -204,13 +206,14 @@ function createSidePanel() {
     <div id="ddtss-content"></div>
   `;
 
-
-
-
   document.body.appendChild(panel);
 
   document.getElementById("ddtss-close").addEventListener("click", () => {
     panel.style.right = "-450px";
+  });
+
+  document.getElementById("ddtss-tab").addEventListener("click", () => {
+    toggleSidePanel();
   });
 }
 
@@ -516,7 +519,6 @@ document.addEventListener("click", (e) => {
   }
 });
 
-
 browser.runtime.onMessage.addListener((msg) => {
   console.log("MESSAGGIO RICEVUTO NEL CONTENT-SCRIPT:", msg);
   if (msg.action === "toggle-panel") {
@@ -525,4 +527,8 @@ browser.runtime.onMessage.addListener((msg) => {
   }
 });
 
+// ===============================
+// Apertura automatica del pannello
+// ===============================
+toggleSidePanel();
 
