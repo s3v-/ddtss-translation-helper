@@ -6,9 +6,12 @@
 
   "content_scripts": [
     {
-      "matches": ["*://ddtp.debian.org/ddtss/index.cgi/*"],
+      "matches": [
+          "*://ddtp.debian.org/ddtss/index.cgi/*/forreview/*",
+          "*://ddtp.debian.org/ddtss/index.cgi/*/translate/*"
+	  ],
       "js": ["content-script.js"],
-	  "css": ["styles/panel.css"],
+      "css": ["styles/panel.css"],
       "run_at": "document_idle"
     }
   ],
