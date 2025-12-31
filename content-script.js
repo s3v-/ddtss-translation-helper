@@ -331,7 +331,9 @@ function toggleSidePanel() {
       output +=
         `<div class="ddtss-box">` +
         `<div class="ddtss-box-text">` +
-		`Suggerimento:\n${suggestion}` +
+        `<strong>Suggerimento</strong>\n` +
+        `${suggestion}</div>` +
+        `<button class="ddtss-btn apply-title" data-suggestion="${encodeURIComponent(suggestion)}">Applica suggerimento</button>` +
 		`</div></div>`;
     } else {
       const itaNorm = normalizeForComparison(ita);
