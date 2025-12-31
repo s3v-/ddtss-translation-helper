@@ -519,4 +519,10 @@ document.addEventListener("click", (e) => {
   }
 });
 
+// ===============================
+// Inizializzazione automatica pannello
+// ===============================
+if (englishBodyElement || italianBodyElement || englishTitle || italianTitle) {
+  createSidePanel();
+}
 
