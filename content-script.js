@@ -3,6 +3,7 @@
 // ===============================
 const state = {
   db: null,
+  lang: null,
   english: {
     title: null,
     body: null
@@ -151,7 +152,7 @@ function generateLineDiffWithHighlight(oldText, newText) {
 function getSuggestion(englishRaw) {
   if (!state.db) return null;
 
-  const lang = detectLanguageFromURL();
+  state.lang = detectLanguageFromURL();
 
   // Normalizza l'inglese dalla pagina
   const english = englishRaw.replace(/\s*\n\s*/g, " ").trim();
@@ -176,7 +177,7 @@ function getSuggestion(englishRaw) {
 
     if (!match) continue;
 
-    let trad = entry.translations[lang];
+    let trad = entry.translations[state.lang];
 
     placeholders.forEach((ph, i) => {
       let value = match[i + 1].trim();
