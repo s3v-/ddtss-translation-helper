@@ -3,7 +3,7 @@
 // ===============================
 const state = {
   db: null,
-  lang: null,
+    lang: null,
   english: {
     title: null,
     body: null
@@ -74,8 +74,24 @@ function normalizeForComparison(text) {
 // wrap75 — spezza il testo ogni 75 caratteri
 // ===============================
 function wrap75(text) {
-  return text.replace(/(.{1,75})(\s+|$)/g, "$1\n").trim();
+  const MAX = 75;
+  return text.split("\n").map(line => {
+    // separa indentazione iniziale dal resto
+    const m = line.match(/^(\s*)(.*)$/);
+    const indent = m ? m[1] : "";
+    let rest = m ? m[2] : line;
+
+    // calcola larghezza utile per il testo
+    const usable = Math.max(10, MAX - indent.length);
+
+    // spezza il testo in pezzi di lunghezza usable
+    const parts = rest.match(new RegExp(".{1," + usable + "}(?:\\s+|$)", "g")) || [rest];
+
+    // rimuove spazi finali da ogni parte e riapplica indentazione
+    return parts.map(p => indent + p.replace(/\s+$/,"")).join("\n");
+  }).join("\n");
 }
+
 
 
 // ===============================
