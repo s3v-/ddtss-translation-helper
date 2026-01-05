@@ -203,6 +203,12 @@
       }
     },
     {
+      "english": "This package has been separated from gcc for the benefit of those who require the preprocessor configured for {arch} architecture but not the compiler.",
+      "translations": {
+        "it": "Questo pacchetto è stato separato da gcc per venire incontro a coloro che necessitano del preprocessore configurato per l'architettura {arch} ma non del compilatore."
+      }
+    },
+    {
       "english": "IDE for Python (v{version}) using Tkinter",
       "translations": {
         "it": "IDE per Python (v{version}) che usa Tkinter"
