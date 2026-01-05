@@ -167,6 +167,12 @@
       }
     },
     {
+      "english": "This package contains preprocessor configured for {arch} architecture.",
+      "translations": {
+        "it": "Questo pacchetto contiene il preprocessore configurato per l'architettura {arch}."
+      }
+    },
+    {
       "english": "This is a dependency package providing the default GNU {compiler} cross-compiler for the {arch} architecture.",
       "translations": {
         "it": "Questo è un pacchetto di dipendenze che fornisce il cross-compilatore GNU {compiler} predefinito per l'architettura {arch}."
