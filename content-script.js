@@ -354,7 +354,6 @@ function createSidePanel() {
     <div id="ddtss-sidepanel-header">
       <h2>Suggerimenti</h2>
       <div id="ddtss-sidepanel-buttons">
-        <button id="ddtss-refresh" title="Aggiorna">↻</button>
         <button id="ddtss-close" title="Chiudi">✖</button>
       </div>
     </div>
@@ -511,11 +510,6 @@ document.addEventListener("click", (e) => {
 
 });
 
-document.addEventListener("click", (e) => {
-  if (e.target.id === "ddtss-refresh") {
-    refreshSidePanel();
-  }
-});
 
 // ===============================
 // Inizializzazione pannello
