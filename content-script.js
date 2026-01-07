@@ -214,6 +214,106 @@ function getSuggestion(englishRaw) {
 
 
 // ===============================
+// Genera l'HTML dei suggerimenti da mostrare nel pannello
+// ===============================
+function generateSuggestionsHTML() {
+  let output = "";
+
+  if (state.english.title && state.italian.title &&
+      state.english.body && state.italian.body) {
+    const ita = state.italian.title.value.trim();
+    const eng = state.english.title;
+    const englishParagraphs = state.english.body
+      .split(/\n\.\n/)
+      .map(p => p.trim());
+    const italianParagraphs = state.italian.body.value
+      .split(/\n\.\n/)
+      .map(p => p.trim());
+
+    // aggiunge titolo all'inizio degli array di paragrafi
+    englishParagraphs.unshift(eng)
+    italianParagraphs.unshift(ita)
+
+    for (let i = 0; i < englishParagraphs.length; i++) {
+      let button_class = ""
+      if (i == 0) {
+        output += `<div class="ddtss-section-title">Titolo</div>`;
+        button_class = "apply-title";
+      } else if (i == 1) {
+        output += `<div class="ddtss-section-title">Body</div>`;
+        button_class = "apply-suggestion";
+      } else {
+        button_class = "apply-suggestion";
+      }
+
+      const eng = englishParagraphs[i];
+      const ita = italianParagraphs[i] || "";
+      const suggestion = getSuggestion(englishParagraphs[i]);
+
+      output += `<div class="ddtss-box">`;
+
+      if (i >= 1) {
+        output += `<div class="ddtss-box-paragraph-title">Paragrafo ${i}</div>`;
+
+      // Controllo righe >75
+      const longLinesITA = ita
+          .split("\n")
+          .filter(line => line.length > 75);
+
+      if (longLinesITA.length > 0) {
+        output +=
+          `  Attenzione: alcune righe superano i 75 caratteri.\n` +
+          `  <button class="ddtss-btn apply-wrap-ita" data-index="${i}">Applica wrap al paragrafo</button>\n\n`;
+        }
+      }
+
+      if (!suggestion) {
+        output +=
+          `<div class="ddtss-box-text">` +
+          `   Nessun suggerimento trovato</div></div>`;
+        continue;
+      }
+
+      if (ita.includes("<trans>")) {
+        output +=
+          `<div class="ddtss-box">` +
+          `<div class="ddtss-box-text">` +
+          `<strong>Suggerimento:</strong>\n${suggestion}</div>` +
+          `<button class="ddtss-btn ${button_class}" data-index="${i}" data-suggestion="${encodeURIComponent(suggestion)}">Applica suggerimento</button>\n` +
+          `</div></div>`;
+        continue;
+      }
+
+      const itaNorm = normalizeForComparison(ita);
+      const suggNorm = suggestion;
+      const sim = similarity(itaNorm, suggNorm);
+
+      if (sim === 100) {
+        output +=
+          `<div class="ddtss-box-text">` +
+          `   Traduzione corretta</div></div>`;
+      } else {
+        const diff = generateLineDiffWithHighlight(itaNorm, suggNorm);
+
+        output +=
+          `<div class="ddtss-box">` +
+          `<div class="ddtss-box-text">` +
+          `<strong>Similarità:</strong> ${sim}%</div>` +
+          `<div class="ddtss-box-text">` +
+          `<strong>Suggerimento</strong>\n` +
+          `${suggestion}</div>` +
+          `<strong>Diff</strong>\n` +
+          `${diff}\n` +
+          `<button class="ddtss-btn ${button_class}" data-index="${i}" data-suggestion="${encodeURIComponent(suggestion)}">Applica suggerimento</button>\n` +
+          `</div></div>`;
+      }
+    }
+  }
+  return output;
+}
+
+
+// ===============================
 // Pannello laterale
 // ===============================
 function createSidePanel() {
@@ -326,101 +426,7 @@ function toggleSidePanel() {
 
   createSidePanel();
 
-  let output = "";
-
-  // ===============================
-  // SUGGERIMENTI
-  // ===============================
-  if (state.english.title && state.italian.title &&
-      state.english.body && state.italian.body) {
-    const ita = state.italian.title.value.trim();
-    const eng = state.english.title;
-    const englishParagraphs = state.english.body
-      .split(/\n\.\n/)
-      .map(p => p.trim());
-    const italianParagraphs = state.italian.body.value
-      .split(/\n\.\n/)
-      .map(p => p.trim());
-
-    // aggiunge titolo all'inizio degli array di paragrafi
-    englishParagraphs.unshift(eng)
-    italianParagraphs.unshift(ita)
-
-    for (let i = 0; i < englishParagraphs.length; i++) {
-      let button_class = ""
-      if (i == 0) {
-        output += `<div class="ddtss-section-title">Titolo</div>`;
-        button_class = "apply-title";
-      } else if (i == 1) {
-        output += `<div class="ddtss-section-title">Body</div>`;
-        button_class = "apply-suggestion";
-      } else {
-        button_class = "apply-suggestion";
-      }
-
-      const eng = englishParagraphs[i];
-      const ita = italianParagraphs[i] || "";
-      const suggestion = getSuggestion(englishParagraphs[i]);
-
-      output += `<div class="ddtss-box">`;
-
-      if (i >= 1) {
-        output += `<div class="ddtss-box-paragraph-title">Paragrafo ${i}</div>`;
-
-      // Controllo righe >75
-      const longLinesITA = ita
-          .split("\n")
-          .filter(line => line.length > 75);
-
-      if (longLinesITA.length > 0) {
-        output +=
-          `  Attenzione: alcune righe superano i 75 caratteri.\n` +
-          `  <button class="ddtss-btn apply-wrap-ita" data-index="${i}">Applica wrap al paragrafo</button>\n\n`;
-        }
-      }
-
-      if (!suggestion) {
-        output +=
-          `<div class="ddtss-box-text">` +
-          `   Nessun suggerimento trovato</div></div>`;
-        continue;
-      }
-
-      if (ita.includes("<trans>")) {
-        output +=
-          `<div class="ddtss-box">` +
-          `<div class="ddtss-box-text">` +
-          `<strong>Suggerimento:</strong>\n${suggestion}</div>` +
-          `<button class="ddtss-btn ${button_class}" data-index="${i}" data-suggestion="${encodeURIComponent(suggestion)}">Applica suggerimento</button>\n` +
-          `</div></div>`;
-        continue;
-      }
-
-      const itaNorm = normalizeForComparison(ita);
-      const suggNorm = suggestion;
-      const sim = similarity(itaNorm, suggNorm);
-
-      if (sim === 100) {
-        output +=
-          `<div class="ddtss-box-text">` +
-          `   Traduzione corretta</div></div>`;
-      } else {
-        const diff = generateLineDiffWithHighlight(itaNorm, suggNorm);
-
-        output +=
-          `<div class="ddtss-box">` +
-          `<div class="ddtss-box-text">` +
-          `<strong>Similarità:</strong> ${sim}%</div>` +
-          `<div class="ddtss-box-text">` +
-          `<strong>Suggerimento</strong>\n` +
-          `${suggestion}</div>` +
-          `<strong>Diff</strong>\n` +
-          `${diff}\n` +
-          `<button class="ddtss-btn ${button_class}" data-index="${i}" data-suggestion="${encodeURIComponent(suggestion)}">Applica suggerimento</button>\n` +
-          `</div></div>`;
-      }
-    }
-  }
+  const output = generateSuggestionsHTML();
 
   openSidePanel(output);
 }
