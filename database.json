@@ -119,6 +119,12 @@
       }
     },
     {
+      "english": "GNU {language} compiler",
+      "translations": {
+        "it": "compilatore GNU {language}"
+      }
+    },
+    {
       "english": "GNU {compiler} compiler for the {arch} architecture",
       "translations": {
         "it": "compilatore GNU {compiler} per l'architettura {arch}"
@@ -149,9 +155,27 @@
       }
     },
     {
+      "english": "GNU {compiler} preprocessor for {arch}",
+      "translations": {
+        "it": "preprocessore GNU {compiler} per {arch}"
+      }
+    },
+    {
       "english": "This is the GNU {compiler} compiler, a fairly portable optimizing compiler for {compiler}.",
       "translations": {
         "it": "Il compilatore GNU {compiler}, un compilatore largamente portabile e ottimizzante per {compiler}."
+      }
+    },
+    {
+      "english": "This is the GNU {language} compiler, which compiles {language} on platforms supported by the {compiler} compiler. It uses the {compiler} backend to generate optimized code.",
+      "translations": {
+        "it": "Questo è il compilatore GNU {language}, che compila {language} sulle piattaforme supportate dal compilatore {compiler}. Usa {compiler} come backend per generare codice ottimizzato."
+      }
+    },
+    {
+      "english": "This is the GNU {language} compiler for the {atch} architecture, which compiles {language} on platforms supported by the {compiler} compiler. It uses the {compiler} backend to generate optimized code.",
+      "translations": {
+        "it": "Questo è il compilatore GNU {language} per l'architettura {arch}, che compila {language} sulle piattaforme supportate dal compilatore {compiler}. Usa {compiler} come backend per generare codice ottimizzato."
       }
     },
     {
@@ -491,6 +515,12 @@
       }
     },
     {
+      "english": "This package is for PostgreSQL {version}.",
+      "translations": {
+        "it": "Questo pacchetto è per PostgreSQL {version}."
+      }
+    },
+    {
       "english": "This is the client package for PostgreSQL {version}. If you install PostgreSQL {version} on a standalone machine, you need the server package postgresql-{version}, too. On a network, you can install this package on many client machines, while the server package may be installed on only one machine.",
       "translations": {
         "it": " Questo è il pacchetto client per PostgreSQL {version}. Se si installa PostgreSQL {version} su una macchina indipendente, è necessario anche il pacchetto server postgresql-{version}. Su una rete, questo pacchetto può essere installato su molte macchine client, mentre il pacchetto server può essere installato su una sola macchina."
@@ -554,6 +584,12 @@
       "english": "IPv4 and IPv6 types for PostgreSQL {version}",
       "translations": {
         "it": "tipi IPv4 e IPv6 per PostgreSQL {version}"
+      }
+    },
+    {
+      "english": "Postgres {version} Foreign Data Wrapper for MySQL",
+      "translations": {
+        "it": "Foreign Data Wrapper di Postgres {version} per MySQL"
       }
     },
     {
@@ -644,6 +680,30 @@
       "english": "This metapackage depends on the PostGIS scripts package for PostgreSQL {version}.",
       "translations": {
         "it": "Questo metapacchetto dipende dal pacchetto degli script PostGIS per PostgreSQL {version}."
+      }
+    },
+    {
+      "english": "Linux kernel specific documentation for version {version}",
+      "translations": {
+        "it": "documentazione specifica per il kernel Linux versione {version}"
+      }
+    },
+    {
+      "english": "This package provides the various README files and HTML documentation for the Linux kernel version {version}.  Plenty of information, including the descriptions of various kernel subsystems, filesystems, driver-specific notes and the like.  An index to the documentation is installed as /usr/share/doc/linux-doc-{version}/html/index.html.",
+      "translations": {
+        "it": "Questo pacchetto fornisce i diversi file README e la documentazione HTML per il kernel Linux versione {version}. Moltissime informazioni, incluse le descrizioni di vari sottosistemi del kernel, file system, note specifiche per i driver e simili. Un indice alla documentazione è installato come file /usr/share/doc/linux-doc-{version}/html/index.html."
+      }
+    },
+    {
+      "english": "Debian kernel configurations for Linux {version}",
+      "translations": {
+        "it": "configurazioni del kernel Debian per Linux {version}"
+      }
+    },
+    {
+      "english": "Linux kernel source for version {version} with Debian patches",
+      "translations": {
+        "it": "sorgenti del kernel Linux per la versione {version} con patch Debian"
       }
     }
   ]
