@@ -120,9 +120,9 @@ function detectLanguageFromURL() {
 
 
 // ===============================
-// Diff per linea con highlight interno
+// Generazione HTML del diff
 // ===============================
-function generateLineDiffWithHighlight(oldText, newText) {
+function generateDiffHTML(oldText, newText) {
   let start = 0;
   let endOld = oldText.length - 1;
   let endNew = newText.length - 1;
@@ -145,20 +145,20 @@ function generateLineDiffWithHighlight(oldText, newText) {
   const oldDiff = oldText.slice(start, endOld + 1);
   const newDiff = newText.slice(start, endNew + 1);
 
-  const oldHighlighted =
+  const oldHTML =
     oldText.slice(0, start) +
-    `%c${oldDiff}%c` +
+    `<span style="background:#ffebee; color:#b71c1c;">${oldDiff}</span>` +
     oldText.slice(endOld + 1);
 
-  const newHighlighted =
+  const newHTML =
     newText.slice(0, start) +
-    `%c${newDiff}%c` +
+    `<span style="background:#e8f5e9; color:#1b5e20;">${newDiff}</span>` +
     newText.slice(endNew + 1);
 
-  return (
-    `- ${oldHighlighted}\n` +
-    `+ ${newHighlighted}`
-  );
+  return `
+    <div>- ${oldHTML}</div>
+    <div>+ ${newHTML}</div>
+  `;
 }
 
 
@@ -293,7 +293,7 @@ function generateSuggestionsHTML() {
           `<div class="ddtss-box-text">` +
           `   Traduzione corretta</div></div>`;
       } else {
-        const diff = generateLineDiffWithHighlight(itaNorm, suggNorm);
+        const diff = generateDiffHTML(itaNorm, suggNorm);
 
         output +=
           `<div class="ddtss-box">` +
@@ -348,47 +348,14 @@ function createSidePanel() {
   });
 }
 
-function openSidePanel(text) {
+function openSidePanel(html) {
   createSidePanel();
-
   const content = document.getElementById("ddtss-content");
-  content.innerHTML = "";
-
-  const lines = text.split("\n");
-  let html = "";
-
-  for (let line of lines) {
-    // Determina se la riga è - o +
-    const isOld = line.startsWith("- ");
-    const isNew = line.startsWith("+ ");
-
-    // Split per highlight interno
-    const parts = line.split("%c");
-    let out = "";
-    let toggle = false;
-
-    for (const p of parts) {
-      if (toggle) {
-        // highlight interno
-        if (isOld) {
-          out += `<span style="background:#ffe5e5; color:#b30000;">${p}</span>`;
-        } else if (isNew) {
-          out += `<span style="background:#e5ffe5; color:#006600;">${p}</span>`;
-        } else {
-          out += p;
-        }
-      } else {
-        out += p;
-      }
-      toggle = !toggle;
-    }
-
-    html += out + "\n";
-  }
-
   content.innerHTML = html;
   document.getElementById("ddtss-sidepanel").style.right = "0";
 }
+
+
 
 function refreshSidePanel() {
   const panel = document.getElementById("ddtss-sidepanel");
