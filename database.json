@@ -155,6 +155,18 @@
       }
     },
     {
+      "english": "GNU {compiler} preprocessor for the {arch} architecture",
+      "translations": {
+        "it": "preprocessore GNU {compiler} per l'architettura {arch}"
+      }
+    },
+    {
+      "english": "GNU {compiler} preprocessor for {arch} architecture",
+      "translations": {
+        "it": "preprocessore GNU {compiler} per l'architettura {arch}"
+      }
+    },
+    {
       "english": "GNU {compiler} preprocessor for {arch}",
       "translations": {
         "it": "preprocessore GNU {compiler} per {arch}"
@@ -224,6 +236,12 @@
       "english": "GNU {compiler} compiler (multilib support) (cross compiler for {arch} architecture)",
       "translations": {
         "it": "compilatore GNU {compiler} (gestione multilib) (cross-compilatore per l'architettura {arch})"
+      }
+    },
+    {
+      "english": "This package has been separated from gcc for the benefit of those who require the preprocessor configured for the {arch} architecture but not the compiler.",
+      "translations": {
+        "it": "Questo pacchetto è stato separato da gcc per venire incontro a coloro che necessitano del preprocessore configurato per l'architettura {arch} ma non del compilatore."
       }
     },
     {
