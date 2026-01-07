@@ -705,6 +705,12 @@
       "translations": {
         "it": "sorgenti del kernel Linux per la versione {version} con patch Debian"
       }
+    },
+    {
+      "english": "This package provides source code for the Linux kernel version {version}. This source closely tracks official Linux kernel releases.  Debian's modifications to that source consist of security fixes, bug fixes, and features that have already been (or are believed to be) accepted by the upstream maintainers.",
+      "translations": {
+        "it": "Questo pacchetto fornisce il codice sorgente per la versione {version} del kernel Linux. Questo sorgente segue strettamente i rilasci ufficiali del kernel Linux. Le modifiche di Debian a tali sorgenti consistono in correzioni di sicurezza, correzioni di bug e funzionalità che sono già state (o si ritengono) accettate dai manutentori originali."
+      }
     }
   ]
 }
