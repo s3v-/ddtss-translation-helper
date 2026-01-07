@@ -234,6 +234,18 @@ function generateSuggestionsHTML() {
     englishParagraphs.unshift(eng)
     italianParagraphs.unshift(ita)
 
+    // Controllo numero paragrafi
+    if (englishParagraphs.length !== italianParagraphs.length) {
+      return `
+        <div class="ddtss-error">
+        <strong>Errore grave:</strong><br>
+        Il numero di paragrafi italiani (${italianParagraphs.length - 1})
+        non corrisponde al numero di paragrafi inglesi (${englishParagraphs.length - 1}).<br><br>
+        Correggi il testo italiano prima di procedere.
+        </div>
+      `;
+    }
+
     for (let i = 0; i < englishParagraphs.length; i++) {
       let button_class = ""
       if (i == 0) {
