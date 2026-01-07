@@ -3,7 +3,7 @@
 // ===============================
 const state = {
   db: null,
-    lang: null,
+  lang: null,
   english: {
     title: null,
     body: null
@@ -329,97 +329,60 @@ function toggleSidePanel() {
   let output = "";
 
   // ===============================
-  // SUGGERIMENTO TITOLO
+  // SUGGERIMENTI
   // ===============================
-  if (state.english.title && state.italian.title) {
+  if (state.english.title && state.italian.title &&
+      state.english.body && state.italian.body) {
     const ita = state.italian.title.value.trim();
     const eng = state.english.title;
-    const suggestion = getSuggestion(eng);
-
-    output += `<div class="ddtss-section-title">Titolo</div>`;
-
-    if (!suggestion) {
-      output +=
-        `<div class="ddtss-box">` +
-        `<div class="ddtss-box-text">` +
-		"Nessun suggerimento trovato" +
-		`</div></div>`;
-    } else if (ita.includes("<trans>")) {
-      output +=
-        `<div class="ddtss-box">` +
-        `<div class="ddtss-box-text">` +
-        `<strong>Suggerimento</strong>\n` +
-        `${suggestion}</div>` +
-        `<button class="ddtss-btn apply-title" data-suggestion="${encodeURIComponent(suggestion)}">Applica suggerimento</button>` +
-		`</div></div>`;
-    } else {
-      const itaNorm = normalizeForComparison(ita);
-      const suggNorm = suggestion;
-      const sim = similarity(itaNorm, suggNorm);
-
-      if (sim === 100) {
-        output +=
-          `<div class="ddtss-box">` +
-          `<div class="ddtss-box-text">` +
-          "Traduzione corretta" +
-          `</div></div>`;
-
-      } else {
-        const diff = generateLineDiffWithHighlight(itaNorm, suggNorm);
-
-        output +=
-          `<div class="ddtss-box">` +
-          `<div class="ddtss-box-text">` +
-          `<strong>Similarità:</strong> ${sim}%</div>` +
-          `<div class="ddtss-box-text">` +
-          `<strong>Suggerimento</strong>\n` +
-          `${suggestion}</div>` +
-          `<strong>Diff</strong>\n` +
-          `${diff}\n` +
-          `<button class="ddtss-btn apply-title" data-suggestion="${encodeURIComponent(suggestion)}">Applica suggerimento</button>` +
-           `</div>`;
-      }
-    }
-  }
-
-  // ===============================
-  // SUGGERIMENTI TESTO (CORPO)
-  // ===============================
-  if (state.english.body && state.italian.body) {
     const englishParagraphs = state.english.body
       .split(/\n\.\n/)
       .map(p => p.trim());
-
     const italianParagraphs = state.italian.body.value
       .split(/\n\.\n/)
       .map(p => p.trim());
 
-    output += `<div class="ddtss-section-title">Body</div>`;
+    // aggiunge titolo all'inizio degli array di paragrafi
+    englishParagraphs.unshift(eng)
+    italianParagraphs.unshift(ita)
 
     for (let i = 0; i < englishParagraphs.length; i++) {
+      let button_class = ""
+      if (i == 0) {
+        output += `<div class="ddtss-section-title">Titolo</div>`;
+        button_class = "apply-title";
+      } else if (i == 1) {
+        output += `<div class="ddtss-section-title">Body</div>`;
+        button_class = "apply-suggestion";
+      } else {
+        button_class = "apply-suggestion";
+      }
+
       const eng = englishParagraphs[i];
       const ita = italianParagraphs[i] || "";
-      const suggestion = getSuggestion(eng);
+      const suggestion = getSuggestion(englishParagraphs[i]);
 
       output += `<div class="ddtss-box">`;
-      output += `<div class="ddtss-box-paragraph-title">Paragrafo ${i + 1}</div>`;
 
+      if (i >= 1) {
+        output += `<div class="ddtss-box-paragraph-title">Paragrafo ${i}</div>`;
 
       // Controllo righe >75
       const longLinesITA = ita
-        .split("\n")
-        .filter(line => line.length > 75);
+          .split("\n")
+          .filter(line => line.length > 75);
 
       if (longLinesITA.length > 0) {
         output +=
           `  Attenzione: alcune righe superano i 75 caratteri.\n` +
           `  <button class="ddtss-btn apply-wrap-ita" data-index="${i}">Applica wrap al paragrafo</button>\n\n`;
+        }
       }
 
       if (!suggestion) {
         output +=
-		  `<div class="ddtss-box-text">` +
-		  `   Nessun suggerimento trovato</div></div>`;
+          `<div class="ddtss-box-text">` +
+          `   Nessun suggerimento trovato</div></div>`;
         continue;
       }
 
@@ -428,7 +391,7 @@ function toggleSidePanel() {
           `<div class="ddtss-box">` +
           `<div class="ddtss-box-text">` +
           `<strong>Suggerimento:</strong>\n${suggestion}</div>` +
-          `<button class="ddtss-btn apply-suggestion" data-index="${i}" data-suggestion="${encodeURIComponent(suggestion)}">Applica suggerimento</button>\n` +
+          `<button class="ddtss-btn ${button_class}" data-index="${i}" data-suggestion="${encodeURIComponent(suggestion)}">Applica suggerimento</button>\n` +
           `</div></div>`;
         continue;
       }
@@ -439,8 +402,8 @@ function toggleSidePanel() {
 
       if (sim === 100) {
         output +=
-		  `<div class="ddtss-box-text">` +
-		  `   Traduzione corretta</div></div>`;
+          `<div class="ddtss-box-text">` +
+          `   Traduzione corretta</div></div>`;
       } else {
         const diff = generateLineDiffWithHighlight(itaNorm, suggNorm);
 
@@ -453,8 +416,8 @@ function toggleSidePanel() {
           `${suggestion}</div>` +
           `<strong>Diff</strong>\n` +
           `${diff}\n` +
-          `<button class="ddtss-btn apply-suggestion" data-index="${i}" data-suggestion="${encodeURIComponent(suggestion)}">Applica suggerimento</button>\n` +
-		  `</div></div>`;
+          `<button class="ddtss-btn ${button_class}" data-index="${i}" data-suggestion="${encodeURIComponent(suggestion)}">Applica suggerimento</button>\n` +
+          `</div></div>`;
       }
     }
   }
@@ -514,10 +477,10 @@ function applyDDTSSChange(element, newValue) {
 document.addEventListener("click", (e) => {
   if (!e.target.classList.contains("apply-suggestion")) return;
 
-  const index = parseInt(e.target.dataset.index, 10);
+  const index = parseInt(e.target.dataset.index, 10) - 1;
   const suggestion = decodeURIComponent(e.target.dataset.suggestion);
-
   const paragraphs = state.italian.body.value.split(/\n\.\n/);
+
   paragraphs[index] = wrap75(suggestion);
 
   applyDDTSSChange(state.italian.body, paragraphs.join("\n.\n"));
@@ -531,7 +494,7 @@ document.addEventListener("click", (e) => {
 document.addEventListener("click", (e) => {
   if (!e.target.classList.contains("apply-wrap-ita")) return;
 
-  const index = parseInt(e.target.dataset.index, 10);
+  const index = parseInt(e.target.dataset.index, 10) - 1;
 
   const paragraphs = state.italian.body.value.split(/\n\.\n/);
   paragraphs[index] = wrap75(paragraphs[index]);
