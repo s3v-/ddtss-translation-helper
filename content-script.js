@@ -348,43 +348,35 @@ function createSidePanel() {
   });
 }
 
-function openSidePanel(html) {
-  createSidePanel();
-  const content = document.getElementById("ddtss-content");
-  content.innerHTML = html;
+function openSidePanel() {
+  refreshSidePanel()
   document.getElementById("ddtss-sidepanel").style.right = "0";
 }
 
 
-
 function refreshSidePanel() {
   const panel = document.getElementById("ddtss-sidepanel");
-  if (panel) {
-    // Forza la chiusura
-    panel.style.right = "-450px";
-  }
-  // E poi riapre con contenuto aggiornato
-  toggleSidePanel();
+
+  if (!panel) { return }
+
+  const content = document.getElementById("ddtss-content");
+  const output = generateSuggestionsHTML();
+  content.innerHTML = output;
 }
 
 
 function toggleSidePanel() {
-  console.log("toggleSidePanel() eseguito");
-
   const panel = document.getElementById("ddtss-sidepanel");
 
   // Se è aperto → chiudi
-  if (panel && panel.style.right === "0px") {
+  if (panel && getComputedStyle(panel).right === "0px") {
     panel.style.right = "-450px";
     return;
   }
 
-  createSidePanel();
-
-  const output = generateSuggestionsHTML();
-
-  openSidePanel(output);
+  openSidePanel();
 }
+
 
 
 // ===============================
