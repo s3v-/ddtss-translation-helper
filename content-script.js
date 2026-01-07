@@ -30,6 +30,19 @@ const state = {
 
 
 // ===============================
+// Limita la frequenza di esecuzione di una funzione
+// ===============================
+function debounce(fn, delay) {
+  let timer = null;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn.apply(this, args), delay);
+  };
+}
+
+
+
+// ===============================
 // Similarità (Levenshtein)
 // ===============================
 function similarity(a, b) {
@@ -413,6 +426,21 @@ function extractDDTSSFields() {
 
 // estrazione iniziale
 extractDDTSSFields();
+
+// Aggiorna il pannello mentre l’utente modifica titolo o corpo
+if (state.italian.title) {
+  state.italian.title.addEventListener(
+    "input",
+    debounce(() => refreshSidePanel(), 300)
+  );
+}
+
+if (state.italian.body) {
+  state.italian.body.addEventListener(
+    "input",
+    debounce(() => refreshSidePanel(), 300)
+  );
+}
 
 // ===============================
 // Funzione per applicare modifiche al DDTSS
