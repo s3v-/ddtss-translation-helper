@@ -400,18 +400,6 @@ function refreshSidePanel() {
   toggleSidePanel();
 }
 
-function updateSidePanel() {
-  // Ricostruisce il contenuto SENZA chiudere il pannello
-  const panel = document.getElementById("ddtss-sidepanel");
-  if (!panel) return;
-
-  // Rigenera il contenuto
-  let output = "";
-  // Riutilizza la logica di toggleSidePanel, ma senza chiudere
-  toggleSidePanel(); // chiude
-  toggleSidePanel(); // riapre aggiornato
-}
-
 
 function toggleSidePanel() {
   console.log("toggleSidePanel() eseguito");
@@ -526,7 +514,7 @@ document.addEventListener("click", (e) => {
 
 document.addEventListener("click", (e) => {
   if (e.target.id === "ddtss-refresh") {
-    updateSidePanel();
+    refreshSidePanel();
   }
 });
 
