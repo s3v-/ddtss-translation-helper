@@ -521,6 +521,5 @@ if (
   state.italian.title
 ) {
   createSidePanel();
-  openSidePanel();
 }
 
