@@ -191,6 +191,12 @@
       }
     },
     {
+      "english": "This is the GNU {language} compiler, which compiles {language} on platforms supported by the {compiler} compiler.",
+      "translations": {
+        "it": "Questo è il compilatore GNU {language}, che compila {language} sulle piattaforme supportate dal compilatore {compiler}."
+      }
+    },
+    {
       "english": "This package contains {compiler} cross-compiler for {arch} architecture.",
       "translations": {
         "it": "Questo pacchetto contiene il cross-compilatore {compiler} per l'architettura {arch}."
@@ -503,6 +509,12 @@
       }
     },
     {
+      "english": "This package contains the source for the Rust crate {crate}, for use with cargo.",
+      "translations": {
+        "it": "Questo pacchetto contiene il codice sorgente per il crate {crate} per Rust, per un uso con cargo."
+      }
+    },
+    {
       "english": "This package contains the source for the Rust {crate} crate, packaged for use with cargo and dh-cargo.",
       "translations": {
         "it": "Questo pacchetto contiene il codice sorgente per il crate {crate} per Rust, pacchettizzato per un uso con cargo e dh-cargo."
@@ -584,6 +596,36 @@
       "english": " PL/Tcl enables an SQL developer to write procedural language functions for PostgreSQL {version} in Tcl.  You need this package if you have any PostgreSQL {version} functions that use the languages pltcl or pltclu.",
       "translations": {
         "it": "PL/Tcl permette ad uno sviluppatore SQL di scrivere funzioni in linguaggio procedurale per PostgreSQL {version} usando Tcl. Questo pacchetto è necessario se si hanno funzioni PostgreSQL {version} che usano i linguaggi pltcl o pltclu."
+      }
+    },
+    {
+      "english": "Geographic objects support for PostgreSQL {version} -- SQL scripts",
+      "translations": {
+        "it": "gestione di oggetti geografici per PostgreSQL {version} -- script SQL"
+      }
+    },
+    {
+      "english": "This package contains the SQL scripts for installing PostGIS in a PostgreSQL {version} database, and for upgrading from earlier PostGIS versions.",
+      "translations": {
+        "it": "Questo pacchetto contiene script SQL per installare PostGIS in un database PostgreSQL {version} e per aggiornare da versioni precedenti di PostGIS."
+      }
+    },
+    {
+      "english": "Geographic objects support for PostgreSQL {version}",
+      "translations": {
+        "it": "gestione di oggetti geografici per PostgreSQL {version}"
+      }
+    },
+    {
+      "english": "This metapackage depends on the PostGIS package for PostgreSQL {version}.",
+      "translations": {
+        "it": "Questo metapacchetto dipende dal pacchetto di PostGIS per PostgreSQL {version}."
+      }
+    },
+    {
+      "english": "This metapackage depends on the PostGIS scripts package for PostgreSQL {version}.",
+      "translations": {
+        "it": "Questo metapacchetto dipende dal pacchetto degli script PostGIS per PostgreSQL {version}."
       }
     },
     {
