@@ -18,7 +18,7 @@ const state = {
 // Caricamento database.json
 // ===============================
 
-(async () => {
+async function loadDatabase() {
   try {
     const url = browser.runtime.getURL("database.json");
     state.db = await fetch(url).then(r => r.json());
@@ -26,7 +26,7 @@ const state = {
   } catch (err) {
     console.error("Errore nel caricamento del database:", err);
   }
-})();
+}
 
 
 // ===============================
@@ -515,14 +515,18 @@ document.addEventListener("click", (e) => {
 
 
 // ===============================
-// Inizializzazione pannello
+// Inizializzazione
 // ===============================
-if (
-  state.english.body ||
-  state.italian.body ||
-  state.english.title ||
-  state.italian.title
-) {
-  createSidePanel();
+async function init() {
+  await loadDatabase();
+  if (
+    state.english.body ||
+    state.italian.body ||
+    state.english.title ||
+    state.italian.title) {
+    createSidePanel();
+  }
 }
+
+init()
 
