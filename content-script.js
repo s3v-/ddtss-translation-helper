@@ -426,9 +426,6 @@ function extractDDTSSFields() {
   state.italian.body = document.querySelector("textarea[name='long']");
 }
 
-// estrazione iniziale
-extractDDTSSFields();
-
 // Aggiorna il pannello mentre l’utente modifica titolo o corpo
 if (state.italian.title) {
   state.italian.title.addEventListener(
@@ -519,6 +516,7 @@ document.addEventListener("click", (e) => {
 // ===============================
 async function init() {
   await loadDatabase();
+  extractDDTSSFields();
   if (
     state.english.body ||
     state.italian.body ||
