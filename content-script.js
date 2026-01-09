@@ -128,7 +128,7 @@ function escapeRegex(str) {
 // ===============================
 function detectLanguageFromURL() {
   const match = window.location.href.match(/index\.cgi\/([A-Za-z_]{2,5})\//);
-  return match ? match[1] : "en";
+  state.lang = match ? match[1] : "en";
 }
 
 
@@ -180,8 +180,6 @@ function generateDiffHTML(oldText, newText) {
 // ===============================
 function getSuggestion(englishRaw) {
   if (!state.db) return null;
-
-  state.lang = detectLanguageFromURL();
 
   // Normalizza l'inglese dalla pagina
   const english = englishRaw.replace(/\s*\n\s*/g, " ").trim();
@@ -517,6 +515,7 @@ document.addEventListener("click", (e) => {
 async function init() {
   await loadDatabase();
   extractDDTSSFields();
+  detectLanguageFromURL();
   if (
     state.english.body ||
     state.italian.body ||
