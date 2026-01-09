@@ -1,84 +1,232 @@
 {
   "globals": {
     "lang": {
-      "Afrikaans": "afrikaans",
-      "Arabic": "arabo",
-      "Aragonese": "aragonese",
-      "Arpitan": "arpitano",
-      "Asturian": "asturiano",
-      "Basque": "basco",
-      "Belarusian": "bielorusso",
-      "Breton": "bretone",
-      "Bulgarian": "bulgaro",
-      "Catalan": "catalano",
-      "Central Kurdish": "curdo del centro",
-      "Chinese": "cinese",
-      "Croatian": "croato",
-      "Czech": "ceco",
-      "Danish": "danese",
-      "Dutch": "olandese",
-      "English": "inglese",
-      "Esperanto": "esperanto",
-      "Finnish": "finlandese",
-      "French": "francese",
-      "Galician": "galiziano",
-      "German": "tedesco",
-      "Hindi": "hindi",
-      "Hungarian": "ungherese",
-      "Icelandic": "islandese",
-      "Indonesian": "indonesiano",
-      "Irish": "irlandese",
-      "Italian": "italiano",
-      "Japanese": "giapponese",
-      "Khasi": "khasi",
-      "Kurdish": "curdo",
-      "Latin": "latino",
-      "Lithuanian": "lituano",
-      "Macedonian": "macedone",
-      "Malagasy": "malgascio",
-      "Malay": "malese",
-      "Modern Greek": "greco moderno",
-      "Northern Kurdish": "curdo del nord",
-      "Norwegian": "norvegese",
-      "Norwegian Bokmål": "norvegese bokmål",
-      "Norwegian Nynorsk": "norvegese nynorsk",
-      "Occitan": "occitano",
-      "Polish": "polacco",
-      "Portuguese": "portoghese",
-      "Romanian": "rumeno",
-      "Romany": "rumeno",
-      "Russian": "russo",
-      "Sanskrit": "sanscrito",
-      "Sardinian": "sardo",
-      "Scottish Gaelic": "gaelico scozzese",
-      "Serbian": "serbo",
-      "Silesian": "slesiano",
-      "Slovak": "slovacco",
-      "Slovenian": "sloveno",
-      "Spanish": "spagnolo",
-      "Swahili": "swahili",
-      "Swedish": "svedese",
-      "Turkish": "turco",
-      "Ukrainian": "ucraino",
-      "Urdu": "urdu",
-      "Welsh": "gallese",
-      "Wolof": "wolof"
+      "Afrikaans": {
+        "it": "afrikaans"
+      },
+      "Arabic": {
+        "it": "arabo"
+      },
+      "Aragonese": {
+        "it": "aragonese"
+      },
+      "Arpitan": {
+        "it": "arpitano"
+      },
+      "Asturian": {
+        "it": "asturiano"
+      },
+      "Basque": {
+        "it": "basco"
+      },
+      "Belarusian": {
+        "it": "bielorusso"
+      },
+      "Breton": {
+        "it": "bretone"
+      },
+      "Bulgarian": {
+        "it": "bulgaro"
+      },
+      "Catalan": {
+        "it": "catalano"
+      },
+      "Central Kurdish": {
+        "it": "curdo del centro"
+      },
+      "Chinese": {
+        "it": "cinese"
+      },
+      "Croatian": {
+        "it": "croato"
+      },
+      "Czech": {
+        "it": "ceco"
+      },
+      "Danish": {
+        "it": "danese"
+      },
+      "Dutch": {
+        "it": "olandese"
+      },
+      "English": {
+        "it": "inglese"
+      },
+      "Esperanto": {
+        "it": "esperanto"
+      },
+      "Finnish": {
+        "it": "finlandese"
+      },
+      "French": {
+        "it": "francese"
+      },
+      "Galician": {
+        "it": "galiziano"
+      },
+      "German": {
+        "it": "tedesco"
+      },
+      "Hindi": {
+        "it": "hindi"
+      },
+      "Hungarian": {
+        "it": "ungherese"
+      },
+      "Icelandic": {
+        "it": "islandese"
+      },
+      "Indonesian": {
+        "it": "indonesiano"
+      },
+      "Irish": {
+        "it": "irlandese"
+      },
+      "Italian": {
+        "it": "italiano"
+      },
+      "Japanese": {
+        "it": "giapponese"
+      },
+      "Khasi": {
+        "it": "khasi"
+      },
+      "Kurdish": {
+        "it": "curdo"
+      },
+      "Latin": {
+        "it": "latino"
+      },
+      "Lithuanian": {
+        "it": "lituano"
+      },
+      "Macedonian": {
+        "it": "macedone"
+      },
+      "Malagasy": {
+        "it": "malgascio"
+      },
+      "Malay": {
+        "it": "malese"
+      },
+      "Modern Greek": {
+        "it": "greco moderno"
+      },
+      "Northern Kurdish": {
+        "it": "curdo del nord"
+      },
+      "Norwegian": {
+        "it": "norvegese"
+      },
+      "Norwegian Bokmål": {
+        "it": "norvegese bokmål"
+      },
+      "Norwegian Nynorsk": {
+        "it": "norvegese nynorsk"
+      },
+      "Occitan": {
+        "it": "occitano"
+      },
+      "Polish": {
+        "it": "polacco"
+      },
+      "Portuguese": {
+        "it": "portoghese"
+      },
+      "Romanian": {
+        "it": "rumeno"
+      },
+      "Romany": {
+        "it": "rumeno"
+      },
+      "Russian": {
+        "it": "russo"
+      },
+      "Sanskrit": {
+        "it": "sanscrito"
+      },
+      "Sardinian": {
+        "it": "sardo"
+      },
+      "Scottish Gaelic": {
+        "it": "gaelico scozzese"
+      },
+      "Serbian": {
+        "it": "serbo"
+      },
+      "Silesian": {
+        "it": "slesiano"
+      },
+      "Slovak": {
+        "it": "slovacco"
+      },
+      "Slovenian": {
+        "it": "sloveno"
+      },
+      "Spanish": {
+        "it": "spagnolo"
+      },
+      "Swahili": {
+        "it": "swahili"
+      },
+      "Swedish": {
+        "it": "svedese"
+      },
+      "Turkish": {
+        "it": "turco"
+      },
+      "Ukrainian": {
+        "it": "ucraino"
+      },
+      "Urdu": {
+        "it": "urdu"
+      },
+      "Welsh": {
+        "it": "gallese"
+      },
+      "Wolof": {
+        "it": "wolof"
+      }
     },
     "freedict_status": {
-      "low quality": "bassa qualità",
-      "small": "piccolo",
-      "too small": "troppo piccolo",
-      "Too small": "troppo piccolo",
-      "stable": "stabile",
-      "Big enough to be useful": "abbastanza grande da essere utile",
-      "big enough to be useful": "abbastanza grande da essere utile",
-      "big enough": "abbastanza grande",
-      "big": "grande",
-      "unstable": "non stabile"
+      "low quality": {
+        "it": "bassa qualità"
+      },
+      "small": {
+        "it": "piccolo"
+      },
+      "too small": {
+        "it": "troppo piccolo"
+      },
+      "Too small": {
+        "it": "troppo piccolo"
+      },
+      "stable": {
+        "it": "stabile"
+      },
+      "Big enough to be useful": {
+        "it": "abbastanza grande da essere utile"
+      },
+      "big enough to be useful": {
+        "it": "abbastanza grande da essere utile"
+      },
+      "big enough": {
+        "it": "abbastanza grande"
+      },
+      "big": {
+        "it": "grande"
+      },
+      "unstable": {
+        "it": "non stabile"
+      }
     },
     "arch": {
-      "host": "ospite",
-      "build": "di compilazione"
+      "host": {
+        "it": "ospite"
+      },
+      "build": {
+        "it": "di compilazione"
+      }
     }
   },
   "patterns": [

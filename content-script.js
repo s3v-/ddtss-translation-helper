@@ -212,8 +212,11 @@ function getSuggestion(englishRaw) {
       let value = match[i + 1].trim();
 
       // Traduzione tramite mappa globale
-      if (state.db.globals && state.db.globals[ph] && state.db.globals[ph][value]) {
-        value = state.db.globals[ph][value];
+      if (state.db.globals && state.db.globals[ph]) {
+        const map = state.db.globals[ph][value];
+        if (map && map[state.lang]) {
+          value = map[state.lang];
+        }
       }
 
       trad = trad.replace("{" + ph + "}", value);
