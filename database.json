@@ -955,6 +955,12 @@
       "translations": {
         "it": "Questo pacchetto fornisce il codice sorgente per la versione {version} del kernel Linux. Questo sorgente segue strettamente i rilasci ufficiali del kernel Linux. Le modifiche di Debian a tali sorgenti consistono in correzioni di sicurezza, correzioni di bug e funzionalità che sono già state (o si ritengono) accettate dai manutentori originali."
       }
+    },
+    {
+	"english": "To use this version, instead of the default one provided by golang-go package, add /usr/lib/go-{version}/bin/ to PATH, or invoke /usr/lib/go-{version}/bin/go directly.",
+      "translations": {
+        "it": "Per usare questa versione anziché quella predefinita fornita dal pacchetto golang-go, aggiungere /usr/lib/go-{version}/bin/ al PATH oppure invocare /usr/lib/go-{version}/bin/go direttamente."
+      }
     }
   ]
 }
