@@ -297,6 +297,12 @@
       }
     },
     {
+      "english": "GNU {compiler} compiler (version 2) (cross compiler for {arch} architecture)",
+      "translations": {
+        "it": "compilatore GNU {compiler} (versione 2) (cross-compilatore per l'architettura {arch})"
+      }
+    },
+    {
       "english": "GNU {compiler} compiler (cross compiler for {arch})",
       "translations": {
         "it": "compilatore GNU {compiler} (cross-compilatore per {arch})"
@@ -333,7 +339,13 @@
       }
     },
     {
-      "english": "This is the GNU {language} compiler for the {atch} architecture, which compiles {language} on platforms supported by the {compiler} compiler. It uses the {compiler} backend to generate optimized code.",
+      "english": "This is the GNU {language} compiler, which compiles {language} on platforms supported by {compiler}. It uses the {compiler} backend to generate optimised code.",
+      "translations": {
+        "it": "Questo è il compilatore GNU {language}, che compila {language} sulle piattaforme supportate da {compiler}. Usa {compiler} come backend per generare codice ottimizzato."
+      }
+    },
+    {
+      "english": "This is the GNU {language} compiler for the {arch} architecture, which compiles {language} on platforms supported by the {compiler} compiler. It uses the {compiler} backend to generate optimized code.",
       "translations": {
         "it": "Questo è il compilatore GNU {language} per l'architettura {arch}, che compila {language} sulle piattaforme supportate dal compilatore {compiler}. Usa {compiler} come backend per generare codice ottimizzato."
       }
@@ -375,6 +387,12 @@
       }
     },
     {
+      "english": "{lang} compiler (based on {compiler}) for the {arch} architecture",
+      "translations": {
+        "it": "compilatore {lang} (basato su {compiler}) per l'architettura {arch}"
+      }
+    },
+    {
       "english": "When using {compiler} via this metapackage, all tools must be used with an architecture prefix.",
       "translations": {
         "it": "Quando si usa {compiler} attraverso questo metapacchetto, tutti gli strumenti devono essere usati con un prefisso per l'architettura."
@@ -390,6 +408,12 @@
       "english": "GNU {compiler} compiler (multilib support) (cross compiler for {arch} architecture)",
       "translations": {
         "it": "compilatore GNU {compiler} (gestione multilib) (cross-compilatore per l'architettura {arch})"
+      }
+    },
+    {
+      "english": "GNU {compiler} compiler (multilib support)",
+      "translations": {
+        "it": "compilatore GNU {compiler} (gestione multilib)"
       }
     },
     {
@@ -669,6 +693,12 @@
       }
     },
     {
+      "english": "This package contains the source for the Rust {crate} crate, packaged for use with cargo.",
+      "translations": {
+        "it": "Questo pacchetto contiene il codice sorgente per il crate {crate} per Rust, pacchettizzato per un uso con cargo."
+      }
+    },
+    {
       "english": "Source code for Debianized Rust crate {crate}",
       "translations": {
         "it": "Codice sorgente per il crate Rust {crate} debianizzato."
@@ -786,6 +816,12 @@
       "english": "This package contains the PostgreSQL {version} extension.",
       "translations": {
         "it": "Questo pacchetto contiene l'estensione per PostgreSQL {version}."
+      }
+    },
+    {
+      "english": "This package contains Apache AGE for PostgreSQL {version}.",
+      "translations": {
+        "it": "Questo pacchetto contiene Apache AGE per PostgreSQL {version}."
       }
     },
     {
