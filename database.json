@@ -333,6 +333,12 @@
       }
     },
     {
+      "english": "This is the GNU {compiler} compiler for the {arch} architecture, a fairly portable optimizing compiler for {lang}.",
+      "translations": {
+        "it": "Il compilatore GNU {compiler} per l'architettura {arch}, un compilatore largamente portabile e ottimizzante per {lang}."
+      }
+    },
+    {
       "english": "This is the GNU {language} compiler, which compiles {language} on platforms supported by the {compiler} compiler. It uses the {compiler} backend to generate optimized code.",
       "translations": {
         "it": "Questo è il compilatore GNU {language}, che compila {language} sulle piattaforme supportate dal compilatore {compiler}. Usa {compiler} come backend per generare codice ottimizzato."
