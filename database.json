@@ -363,13 +363,13 @@
       }
     },
     {
-      "english": "This package contains {compiler} cross-compiler for {arch} architecture.",
+      "english": "This package contains {compiler} cross-compiler for the {arch} architecture.",
       "translations": {
         "it": "Questo pacchetto contiene il cross-compilatore {compiler} per l'architettura {arch}."
       }
     },
     {
-      "english": "This package contains {compiler} cross-compiler for the {arch} architecture.",
+      "english": "This package contains {compiler} cross-compiler for {arch} architecture.",
       "translations": {
         "it": "Questo pacchetto contiene il cross-compilatore {compiler} per l'architettura {arch}."
       }
