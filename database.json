@@ -867,6 +867,12 @@
       }
     },
     {
+      "english": "pgpool-II is a middleware that works between PostgreSQL servers and a PostgreSQL database client.  This package contains support modules for the PostgreSQL {version} server:",
+      "translations": {
+        "it": "pgpool-II è un middleware che lavora tra i server PostgreSQL e un client per database PostgreSQL. Questo pacchetto contiene moduli di supporto per il server PostgreSQL {version}."
+      }
+    },
+    {
       "english": "Postgres {version} Foreign Data Wrapper for MySQL",
       "translations": {
         "it": "Foreign Data Wrapper di Postgres {version} per MySQL"
