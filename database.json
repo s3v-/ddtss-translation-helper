@@ -429,6 +429,24 @@
       }
     },
     {
+      "english": "GNU {compiler} compiler (multilib support) (cross compiler for {arch})",
+      "translations": {
+        "it": "compilatore GNU {compiler} (gestione multilib) (cross-compilatore per {arch})"
+      }
+    },
+    {
+      "english": "GNU {compiler} compiler (version {version}, multilib support) (cross compiler for {arch} architecture)",
+      "translations": {
+        "it": "compilatore GNU {compiler} (versione {version}, gestione multilib) (cross-compilatore per l'architettura {arch})"
+      }
+    },
+    {
+      "english": "GNU {compiler} compiler (version {version}, multilib support) (cross compiler for {arch})",
+      "translations": {
+        "it": "compilatore GNU {compiler} (versione {version}, gestione multilib) (cross-compilatore per {arch})"
+      }
+    },
+    {
       "english": "GNU {compiler} compiler (multilib support)",
       "translations": {
         "it": "compilatore GNU {compiler} (gestione multilib)"
