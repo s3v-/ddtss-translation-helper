@@ -513,6 +513,18 @@
       }
     },
     {
+      "english": "This is the official set of documentation for the interactive high-level object-oriented language Python 3 (v{version}). All documents are provided in HTML format, some in info format. The package consists of nine documents:",
+      "translations": {
+        "it": "Questo è l'insieme ufficiale della documentazione per il linguaggio interattivo orientato agli oggetti di alto livello Python 3 (v{version}). Tutti i documenti sono forniti in formato HTML, alcuni in formato info. Il pacchetto contiene nove documenti:"
+      }
+    },
+    {
+      "english": "This package is a dependency package, which depends on Debian's default Python 3 version's documentation (currently v{version}).",
+      "translations": {
+        "it": "Questo è un pacchetto di dipendenze che dipende dalla documentazione per la versione di Python 3 predefinita in Debian (attualmente v{version})."
+      }
+    },
+    {
       "english": "Examples for the Python language (v{version})",
       "translations": {
         "it": "esempi per il linguaggio Python (v{version})"
@@ -537,9 +549,9 @@
       }
     },
     {
-      "english": "This package contains the interpreter and some essential modules.  It can be used in the boot process for some basic tasks. See /usr/share/doc/python{version}-minimal/README.Debian for a list of the modules contained in this package.",
+      "english": "This package contains the interpreter and some essential modules.  It's used in the boot process for some basic tasks. See /usr/share/doc/python{version}-minimal/README.Debian for a list of the modules contained in this package.",
       "translations": {
-        "it": "Questo pacchetto contiene l'interprete e alcuni moduli essenziali. Può essere usato nel processo di avvio per alcuni compiti di base. Vedere /usr/share/doc/python{version}-minimal/README.Debian per un elenco dei moduli contenuti in questo pacchetto."
+        "it": "Questo pacchetto contiene l'interprete e alcuni moduli essenziali. È usato nel processo di avvio per alcuni compiti di base. Vedere /usr/share/doc/python{version}-minimal/README.Debian per un elenco dei moduli contenuti in questo pacchetto."
       }
     },
     {
