@@ -188,6 +188,20 @@
         "it": "wolof"
       }
     },
+    "petsc_or_slepc_real_or_complex": {
+      "real": {
+        "it": "reali"
+      },
+      "complex": {
+        "it": "complessi"
+      },
+      "Real": {
+        "it": "reali"
+      },
+      "Complex": {
+        "it": "complessi"
+      }
+    },
     "freedict_status": {
       "low quality": {
         "it": "bassa qualità"
@@ -1011,9 +1025,183 @@
       }
     },
     {
-	"english": "To use this version, instead of the default one provided by golang-go package, add /usr/lib/go-{version}/bin/ to PATH, or invoke /usr/lib/go-{version}/bin/go directly.",
+      "english": "To use this version, instead of the default one provided by golang-go package, add /usr/lib/go-{version}/bin/ to PATH, or invoke /usr/lib/go-{version}/bin/go directly.",
       "translations": {
         "it": "Per usare questa versione anziché quella predefinita fornita dal pacchetto golang-go, aggiungere /usr/lib/go-{version}/bin/ al PATH oppure invocare /usr/lib/go-{version}/bin/go direttamente."
+      }
+    },
+    {
+      "english": "This package contains the shared libraries for SLEPc {version} with {petsc_or_slepc_real_or_complex} numbers.",
+      "translations": {
+        "it": "Questo pacchetto contiene le librerie condivise per SLEPc {version} con numeri {petsc_or_slepc_real_or_complex}."
+      }
+    },
+    {
+      "english": "This package contains the shared libraries for SLEPc {version} with {petsc_or_slepc_real_or_complex} numbers and 64-bit indexing.",
+      "translations": {
+        "it": "Questo pacchetto contiene le librerie condivise per SLEPc {version} con numeri {petsc_or_slepc_real_or_complex} e indicizzazione a 64 bit."
+      }
+    },
+    {
+      "english": "This package contains the static libraries, shared links, and header files for SLEPc {version} with {petsc_or_slepc_real_or_complex} numbers and 64-bit indexing.",
+      "translations": {
+        "it": "Questo pacchetto contiene le librerie statiche, i collegamenti condivisi e i file header per SLEPc {version} con numeri {petsc_or_slepc_real_or_complex} e indicizzazione a 64 bit."
+      }
+    },
+    {
+      "english": "This package contains the static libraries, shared links, and header files for SLEPc {version} with {petsc_or_slepc_real_or_complex} numbers.",
+      "translations": {
+        "it": "Questo pacchetto contiene le librerie statiche, i collegamenti condivisi e i file header per SLEPc {version} con numeri {petsc_or_slepc_real_or_complex}."
+      }
+    },
+    {
+      "english": "This package provides Python 3 bindings to almost all functions of {petsc_or_slepc} {version} with {petsc_or_slepc_real_or_complex} number support and 64-bit indexing.",
+      "translations": {
+        "it": "Questo pacchetto fornisce i collegamenti Python 3 per quasi tutte le funzioni di {petsc_or_slepc} {version} con la gestione dei numeri {petsc_or_slepc_real_or_complex} e indicizzazione a 64 bit."
+      }
+    },
+    {
+      "english": "This package provides Python 3 bindings to almost all functions of {petsc_or_slepc} {version} with {petsc_or_slepc_real_or_complex} number support.",
+      "translations": {
+        "it": "Questo pacchetto fornisce i collegamenti Python 3 per quasi tutte le funzioni di {petsc_or_slepc} {version} con la gestione dei numeri {petsc_or_slepc_real_or_complex}."
+      }
+    },
+    {
+      "english": "Python 3 bindings for {petsc_or_slepc} {version} libraries ({petsc_or_slepc_real_or_complex} numbers)",
+      "translations": {
+        "it": "collegamenti Python 3 per le librerie {petsc_or_slepc} {version} (numeri {petsc_or_slepc_real_or_complex})"
+      }
+    },
+    {
+      "english": "Python 3 bindings for 64-bit {petsc_or_slepc} {version} libraries ({petsc_or_slepc_real_or_complex} numbers)",
+      "translations": {
+        "it": "collegamenti Python 3 per le librerie {petsc_or_slepc} {version} a 64 bit (numeri {petsc_or_slepc_real_or_complex})"
+      }
+    },
+    {
+      "english": "This package provides example, test, and tutorial scripts for PETSc {version}.",
+      "translations": {
+        "it": "Questo pacchetto fornisce esempi, test e script di tutorial per PETSc {version}."
+      }
+    },
+    {
+      "english": "This package contains example, test, and tutorial scripts for SLEPc {version}.",
+      "translations": {
+        "it": "Questo pacchetto contiene esempi, test e script di tutorial per SLEPc {version}."
+      }
+    },
+    {
+      "english": "Shared libraries for version {version} of PETSc",
+      "translations": {
+        "it": "librerie condivise per la versione {version} di PETSc"
+      }
+    },
+    {
+      "english": "Shared libraries for version {version} of 64-bit PETSc",
+      "translations": {
+        "it": "librerie condivise per la versione {version} di PETSc a 64 bit"
+      }
+    },
+    {
+      "english": "Shared libraries for version {version} of PETSc with {petsc_or_slepc_real_or_complex} Numbers",
+      "translations": {
+        "it": "librerie condivise per la versione {version} di PETSc con numeri {petsc_or_slepc_real_or_complex}"
+      }
+    },
+    {
+      "english": "Shared libraries for version {version} of 64-bit PETSc with {petsc_or_slepc_real_or_complex} Numbers",
+      "translations": {
+        "it": "librerie condivise per la versione {version} di PETSc a 64 bit con numeri {petsc_or_slepc_real_or_complex}"
+      }
+    },
+    {
+      "english": "This package contains the PETSc {version} shared library for {petsc_or_slepc_real_or_complex} numbers.",
+      "translations": {
+        "it": "Questo pacchetto contiene la libreria condivisa di PETSc {version} per numeri {petsc_or_slepc_real_or_complex}."
+      }
+    },
+    {
+      "english": "This package contains the PETSc {version} shared library for {petsc_or_slepc_real_or_complex} numbers and 64-bit indexing.",
+      "translations": {
+        "it": "Questo pacchetto contiene la libreria condivisa di PETSc {version} per numeri {petsc_or_slepc_real_or_complex} e indicizzazione a 64 bit."
+      }
+    },
+    {
+      "english": "This package contains the PETSc {version} shared library, supporting {petsc_or_slepc_real_or_complex} numbers.",
+      "translations": {
+        "it": "Questo pacchetto contiene la libreria condivisa di PETSc {version} con la gestione dei numeri {petsc_or_slepc_real_or_complex}."
+      }
+    },
+    {
+      "english": "This package contains the PETSc {version} shared library, supporting {petsc_or_slepc_real_or_complex} numbers and 64-bit indexing.",
+      "translations": {
+        "it": "Questo pacchetto contiene la libreria condivisa di PETSc {version} con la gestione dei numeri {petsc_or_slepc_real_or_complex} e indicizzazione a 64 bit."
+      }
+    },
+    {
+      "english": "It provides soname {soname}",
+      "translations": {
+        "it": "Fornisce il soname {soname}."
+      }
+    },
+    {
+      "english": "This package contains documentation for developing with PETSc {version}.",
+      "translations": {
+        "it": "Questo pacchetto contiene la documentazione per sviluppare con PETSc {version}."
+      }
+    },
+    {
+      "english": "This package provides the development files and debugging libraries for debugging applications using PETSc {version} with {petsc_or_slepc_real_or_complex} number support.",
+      "translations": {
+        "it": "Questo pacchetto fornisce i file di sviluppo e le librerie di debug per fare il debug di applicazioni che usano PETSc {version} con gestione dei numeri {petsc_or_slepc_real_or_complex}."
+      }
+    },
+    {
+      "english": "This package provides the development files and debugging libraries for debugging applications using PETSc {version} with {petsc_or_slepc_real_or_complex} number support and 64-bit indexing.",
+      "translations": {
+        "it": "Questo pacchetto fornisce i file di sviluppo e le librerie di debug per fare il debug di applicazioni che usano PETSc {version} con gestione dei numeri {petsc_or_slepc_real_or_complex} e indicizzazione a 64 bit."
+      }
+    },
+    {
+      "english": "This package provides the development files and debugging libraries for debugging applications using PETSc {version} with {petsc_or_slepc_real_or_complex} numbers.",
+      "translations": {
+        "it": "Questo pacchetto fornisce i file di sviluppo e le librerie di debug per fare il debug di applicazioni che usano PETSc {version} con numeri {petsc_or_slepc_real_or_complex}."
+      }
+    },
+    {
+      "english": "This package provides the development files and debugging libraries for debugging applications using PETSc {version} with {petsc_or_slepc_real_or_complex} numbers and 64-bit indexing.",
+      "translations": {
+        "it": "Questo pacchetto fornisce i file di sviluppo e le librerie di debug per fare il debug di applicazioni che usano PETSc {version} con numeri {petsc_or_slepc_real_or_complex} e indicizzazione a 64 bit."
+      }
+    },
+    {
+      "english": "This package provides the development files for building applications using PETSc {version} with support for {petsc_or_slepc_real_or_complex} numbers.",
+      "translations": {
+        "it": "Questo pacchetto fornisce i file di sviluppo per compilare applicazioni che usano PETSc {version} con gestione dei numeri {petsc_or_slepc_real_or_complex}."
+      }
+    },
+    {
+      "english": "This package provides the development files for building applications using PETSc {version} with {petsc_or_slepc_real_or_complex} numbers.",
+      "translations": {
+        "it": "Questo pacchetto fornisce i file di sviluppo per compilare applicazioni che usano PETSc {version} con numeri {petsc_or_slepc_real_or_complex}."
+      }
+    },
+    {
+      "english": "This package provides the development files for building applications using PETSc {version} with support for {petsc_or_slepc_real_or_complex} numbers and 64-bit indexing.",
+      "translations": {
+        "it": "Questo pacchetto fornisce i file di sviluppo per compilare applicazioni che usano PETSc {version} con gestione dei numeri {petsc_or_slepc_real_or_complex} e indicizzazione a 64 bit."
+      }
+    },
+    {
+      "english": "This package provides the development files for building applications using PETSc {version} with {petsc_or_slepc_real_or_complex} numbers and 64-bit indexing.",
+      "translations": {
+        "it": "Questo pacchetto fornisce i file di sviluppo per compilare applicazioni che usano PETSc {version} con numeri {petsc_or_slepc_real_or_complex} e indicizzazione a 64 bit."
+      }
+    },
+    {
+      "english": "This package provides header and other support files common to the various dev packages (with real or complex number support) for PETSc {version}.",
+      "translations": {
+        "it": "Questo pacchetto fornisce gli header e altri file di supporto comuni ai vari pacchetti di sviluppo (con gestione dei numeri reali o complessi) per PETSc {version}."
       }
     }
   ]
