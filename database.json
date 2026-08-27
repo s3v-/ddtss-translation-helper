@@ -661,13 +661,13 @@
     {
       "english": "The package currently depends on {python_pack1} and {python_pack2}.",
       "translations": {
-        "it": "Il pacchetto attualmente dipende da {python_pack1} e {python_pack2})."
+        "it": "Il pacchetto attualmente dipende da {python_pack1} e {python_pack2}."
       }
     },
     {
       "english": "The package currently depends on {python_pack}.",
       "translations": {
-        "it": "Il pacchetto attualmente dipende da {python_pack."
+        "it": "Il pacchetto attualmente dipende da {python_pack}."
       }
     },
     {
