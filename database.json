@@ -659,15 +659,15 @@
       }
     },
     {
-      "english": "The package currently depends on {python_pack}. In the future, dependencies on jython (Python for a JVM) and ironpython (Python for Mono) may be added.",
+      "english": "The package currently depends on {python_pack1} and {python_pack2}.",
       "translations": {
-        "it": "Il pacchetto attualmente dipende da {python_pack}; in futuro potrebbero essere aggiunte le dipendenze da jython (Python per una JVM) e ironpython (Python per Mono)."
+        "it": "Il pacchetto attualmente dipende da {python_pack1} e {python_pack2})."
       }
     },
     {
-      "english": "The package currently depends on {python_pack1} and {python_pack2}. In the future, dependencies on jython (Python for a JVM) and ironpython (Python for Mono) may be added.",
+      "english": "The package currently depends on {python_pack}.",
       "translations": {
-        "it": "Il pacchetto attualmente dipende da {python_pack1} e {python_pack2}; in futuro potrebbero essere aggiunte le dipendenze da jython (Python per una JVM) e ironpython (Python per Mono)."
+        "it": "Il pacchetto attualmente dipende da {python_pack."
       }
     },
     {
