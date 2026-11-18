@@ -514,13 +514,23 @@ document.addEventListener("click", (e) => {
 // ===============================
 async function init() {
   await loadDatabase();
+
   extractDDTSSFields();
   detectLanguageFromURL();
+
+  if (state.italian.body) {
+    state.italian.body.addEventListener(
+      "input",
+      debounce(() => refreshSidePanel(), 300)
+    );
+  }
+
   if (
     state.english.body ||
     state.italian.body ||
     state.english.title ||
-    state.italian.title) {
+    state.italian.title
+  ) {
     createSidePanel();
   }
 }
