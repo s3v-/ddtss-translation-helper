@@ -4,6 +4,7 @@
 const state = {
   db: null,
   lang: null,
+  previousTranslation: null,
   english: {
     title: null,
     body: null
@@ -129,6 +130,51 @@ function escapeRegex(str) {
 function detectLanguageFromURL() {
   const match = window.location.href.match(/index\.cgi\/([A-Za-z_]{2,5})\//);
   state.lang = match ? match[1] : "en";
+}
+
+// ===============================
+// Ricava la precedente traduzione dall'iframe
+// ===============================
+function getPreviousTranslation() {
+
+  if (state.previousTranslation) {
+    return state.previousTranslation;
+  }
+
+  const iframe = document.querySelector("iframe");
+
+  if (!iframe?.contentDocument) {
+    return null;
+  }
+
+  const pre = [...iframe.contentDocument.querySelectorAll("pre")]
+    .find(el => el.textContent.startsWith("Description-it:"));
+
+  if (!pre) {
+    return null;
+  }
+
+  let text = pre.textContent
+    .replace(/^Description-it:\s*/, "");
+
+  text = removeOneLeadingSpace(text);
+
+  const parts = text
+    .trim()
+    .split(/\n\.\n/);
+  const lines = text.split("\n");
+  const title = lines[0].trim();
+  const body = lines.slice(1).join("\n").trim();
+  const paragraphs = body
+    .split(/\n\.\n/)
+    .map(p => p.trim());
+
+  state.previousTranslation = {
+    title,
+    paragraphs
+  };
+
+  return state.previousTranslation;
 }
 
 
@@ -293,10 +339,21 @@ function generateSuggestionsHTML() {
         }
       }
 
+      const loadPrevTransButtonString =
+        ita.includes("<trans>")
+          ? `<button
+               class="ddtss-btn load-old-translation"
+               data-index="${i}">
+               Carica vecchia traduzione
+             </button>`
+          : "";
+
       if (!suggestion) {
         output +=
           `<div class="ddtss-box-text">` +
-          `   Nessun suggerimento trovato</div></div>`;
+          `   Nessun suggerimento trovato</div>` +
+          loadPrevTransButtonString +
+          `</div>`;
         continue;
       }
 
@@ -305,8 +362,9 @@ function generateSuggestionsHTML() {
           `<div class="ddtss-box">` +
           `<div class="ddtss-box-text">` +
           `<strong>Suggerimento:</strong>\n${suggestion}</div>` +
-          `<button class="ddtss-btn ${button_class}" data-index="${i}" data-suggestion="${encodeURIComponent(suggestion)}">Applica suggerimento</button>\n` +
-          `</div></div>`;
+          `<button class="ddtss-btn ${button_class}" data-index="${i}" data-suggestion="${encodeURIComponent(suggestion)}">Applica suggerimento</button></div>` +
+          loadPrevTransButtonString +
+          `</div>`;
         continue;
       }
 
@@ -386,6 +444,7 @@ function refreshSidePanel() {
 
   const content = document.getElementById("ddtss-content");
   const output = generateSuggestionsHTML();
+
   content.innerHTML = output;
 }
 
@@ -506,6 +565,48 @@ document.addEventListener("click", (e) => {
   applyDDTSSChange(state.italian.title, suggestion);
   refreshSidePanel();
 
+});
+
+
+// ===============================
+// Event listener per "Usa traduzione precedente"
+// ===============================
+document.addEventListener("click", (e) => {
+
+  if (!e.target.classList.contains("load-old-translation")) return;
+
+  const previous = getPreviousTranslation();
+
+  if (!previous) return;
+
+  const index = parseInt(e.target.dataset.index, 10);
+
+  if (index === 0) {
+
+    applyDDTSSChange(
+      state.italian.title,
+      previous.title
+    );
+
+  } else {
+
+    const oldParagraph =
+      previous.paragraphs[index - 1];
+
+    if (!oldParagraph) return
+
+    const paragraphs =
+      state.italian.body.value.split(/\n\.\n/);
+
+    paragraphs[index - 1] = oldParagraph;
+
+    applyDDTSSChange(
+      state.italian.body,
+      paragraphs.join("\n.\n")
+    );
+  }
+
+  refreshSidePanel();
 });
 
 
