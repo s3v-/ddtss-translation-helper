@@ -6,6 +6,7 @@ A Firefox (for now) extension that helps Debian DDTSS translators by providing:
 - paragraph-by-paragraph comparison
 - automatic 75‑character wrapping for body text
 - placeholder support
+- buttons for replacing untranslated paragraphs with previous ones (experimental)
 
 ## Installation (temporary)
 1. Open `about:debugging#/runtime/this-firefox`
