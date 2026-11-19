@@ -483,20 +483,6 @@ function extractDDTSSFields() {
   state.italian.body = document.querySelector("textarea[name='long']");
 }
 
-// Aggiorna il pannello mentre l’utente modifica titolo o corpo
-if (state.italian.title) {
-  state.italian.title.addEventListener(
-    "input",
-    debounce(() => refreshSidePanel(), 300)
-  );
-}
-
-if (state.italian.body) {
-  state.italian.body.addEventListener(
-    "input",
-    debounce(() => refreshSidePanel(), 300)
-  );
-}
 
 // ===============================
 // Funzione per applicare modifiche al DDTSS
@@ -618,6 +604,13 @@ async function init() {
 
   extractDDTSSFields();
   detectLanguageFromURL();
+
+  if (state.italian.title) {
+    state.italian.title.addEventListener(
+      "input",
+      debounce(() => refreshSidePanel(), 300)
+    );
+  }
 
   if (state.italian.body) {
     state.italian.body.addEventListener(
