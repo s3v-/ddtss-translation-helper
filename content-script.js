@@ -327,15 +327,15 @@ function generateSuggestionsHTML() {
       if (i >= 1) {
         output += `<div class="ddtss-box-paragraph-title">Paragrafo ${i}</div>`;
 
-      // Controllo righe >75
-      const longLinesITA = ita
-          .split("\n")
-          .filter(line => line.length > 75);
+        // Controllo righe >75
+        const longLinesITA = ita
+            .split("\n")
+            .filter(line => line.length > 75);
 
-      if (longLinesITA.length > 0) {
-        output +=
-          `  Attenzione: alcune righe superano i 75 caratteri.\n` +
-          `  <button class="ddtss-btn apply-wrap-ita" data-index="${i}">Applica wrap al paragrafo</button>\n\n`;
+        if (longLinesITA.length > 0) {
+          output +=
+            `  Attenzione: alcune righe superano i 75 caratteri.\n` +
+            `  <button class="ddtss-btn apply-wrap-ita" data-index="${i}">Applica wrap al paragrafo</button>\n\n`;
         }
       }
 
