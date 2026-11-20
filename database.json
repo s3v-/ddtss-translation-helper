@@ -793,7 +793,7 @@
     {
       "english": "This is the client package for PostgreSQL {version}. If you install PostgreSQL {version} on a standalone machine, you need the server package postgresql-{version}, too. On a network, you can install this package on many client machines, while the server package may be installed on only one machine.",
       "translations": {
-        "it": " Questo è il pacchetto client per PostgreSQL {version}. Se si installa PostgreSQL {version} su una macchina indipendente, è necessario anche il pacchetto server postgresql-{version}. Su una rete, questo pacchetto può essere installato su molte macchine client, mentre il pacchetto server può essere installato su una sola macchina."
+        "it": "Questo è il pacchetto client per PostgreSQL {version}. Se si installa PostgreSQL {version} su una macchina indipendente, è necessario anche il pacchetto server postgresql-{version}. Su una rete, questo pacchetto può essere installato su molte macchine client, mentre il pacchetto server può essere installato su una sola macchina."
       }
     },
     {
@@ -809,9 +809,9 @@
       }
     },
     {
-      "english": " PL/Perl enables an SQL developer to write procedural language functions for PostgreSQL {version} in Perl.  You need this package if you have any PostgreSQL {version} functions that use the languages plperl or plperlu.",
+      "english": "PL/Perl enables an SQL developer to write procedural language functions for PostgreSQL {version} in Perl.  You need this package if you have any PostgreSQL {version} functions that use the languages plperl or plperlu.",
       "translations": {
-        "it": " PL/Perl permette ad uno sviluppatore SQL di scrivere funzioni in linguaggio procedurale per PostgreSQL {version} in Perl. Si ha bisogno di questo pacchetto se si ha qualche funzione PostgreSQL {version} che utilizza i linguaggi plperl o plperlu."
+        "it": "PL/Perl permette ad uno sviluppatore SQL di scrivere funzioni in linguaggio procedurale per PostgreSQL {version} in Perl. Si ha bisogno di questo pacchetto se si ha qualche funzione PostgreSQL {version} che utilizza i linguaggi plperl o plperlu."
       }
     },
     {
@@ -823,7 +823,7 @@
     {
       "english": "PL/Python 3 enables an SQL developer to write procedural language functions for PostgreSQL {version} in Python 3.  You need this package if you have any PostgreSQL {version} functions that use the languages plpython3 or plpython3u.",
       "translations": {
-        "it": " PL/Python 3 permette ad uno sviluppatore SQL di scrivere funzioni in linguaggio procedurale per PostgreSQL {version} in Python 3. Si ha bisogno di questo pacchetto se si ha qualche funzione PostgreSQL {version} che utilizza i linguaggi plpython3 o plpython3u."
+        "it": "PL/Python 3 permette ad uno sviluppatore SQL di scrivere funzioni in linguaggio procedurale per PostgreSQL {version} in Python 3. Si ha bisogno di questo pacchetto se si ha qualche funzione PostgreSQL {version} che utilizza i linguaggi plpython3 o plpython3u."
       }
     },
     {
@@ -833,7 +833,7 @@
       }
     },
     {
-      "english": " PL/Tcl enables an SQL developer to write procedural language functions for PostgreSQL {version} in Tcl.  You need this package if you have any PostgreSQL {version} functions that use the languages pltcl or pltclu.",
+      "english": "PL/Tcl enables an SQL developer to write procedural language functions for PostgreSQL {version} in Tcl.  You need this package if you have any PostgreSQL {version} functions that use the languages pltcl or pltclu.",
       "translations": {
         "it": "PL/Tcl permette ad uno sviluppatore SQL di scrivere funzioni in linguaggio procedurale per PostgreSQL {version} usando Tcl. Questo pacchetto è necessario se si hanno funzioni PostgreSQL {version} che usano i linguaggi pltcl o pltclu."
       }
