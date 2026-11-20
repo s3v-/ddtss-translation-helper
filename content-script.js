@@ -7,12 +7,12 @@ const state = {
   previousTranslation: null,
   english: {
     title: null,
-    body: null
+    body: null,
   },
   italian: {
     title: null,
-    body: null
-  }
+    body: null,
+  },
 };
 
 // ===============================
@@ -24,11 +24,11 @@ async function loadDatabase() {
     const url = browser.runtime.getURL("database.json");
     state.db = await fetch(url).then(r => r.json());
     console.log("Database caricato:", state.db);
-  } catch (err) {
+  }
+  catch (err) {
     console.error("Errore nel caricamento del database:", err);
   }
 }
-
 
 // ===============================
 // Limita la frequenza di esecuzione di una funzione
@@ -41,30 +41,35 @@ function debounce(fn, delay) {
   };
 }
 
-
-
 // ===============================
 // Similarità (Levenshtein)
 // ===============================
 function similarity(a, b) {
-  if (!a || !b) return 0;
+  if (!a || !b) {
+    return 0;
+  }
 
   const matrix = [];
   const alen = a.length;
   const blen = b.length;
 
-  for (let i = 0; i <= blen; i++) matrix[i] = [i];
-  for (let j = 0; j <= alen; j++) matrix[0][j] = j;
+  for (let i = 0; i <= blen; i++) {
+    matrix[i] = [i];
+  }
+  for (let j = 0; j <= alen; j++) {
+    matrix[0][j] = j;
+  }
 
   for (let i = 1; i <= blen; i++) {
     for (let j = 1; j <= alen; j++) {
       if (b.charAt(i - 1) === a.charAt(j - 1)) {
         matrix[i][j] = matrix[i - 1][j - 1];
-      } else {
+      }
+      else {
         matrix[i][j] = Math.min(
           matrix[i - 1][j - 1] + 1,
           matrix[i][j - 1] + 1,
-          matrix[i - 1][j] + 1
+          matrix[i - 1][j] + 1,
         );
       }
     }
@@ -75,14 +80,12 @@ function similarity(a, b) {
   return Math.round((1 - distance / maxLen) * 100);
 }
 
-
 // ===============================
 // Normalizzazione SOLO del testo italiano
 // ===============================
 function normalizeForComparison(text) {
   return text.replace(/\s*\n\s*/g, " ").trim();
 }
-
 
 // ===============================
 // wrap75 — spezza il testo ogni 75 caratteri
@@ -93,7 +96,7 @@ function wrap75(text) {
     // separa indentazione iniziale dal resto
     const m = line.match(/^(\s*)(.*)$/);
     const indent = m ? m[1] : "";
-    let rest = m ? m[2] : line;
+    const rest = m ? m[2] : line;
 
     // calcola larghezza utile per il testo
     const usable = Math.max(10, MAX - indent.length);
@@ -106,8 +109,6 @@ function wrap75(text) {
   }).join("\n");
 }
 
-
-
 // ===============================
 // Rimuove SOLO UNO spazio iniziale per riga
 // ===============================
@@ -115,14 +116,12 @@ function removeOneLeadingSpace(text) {
   return text.replace(/^ /gm, "");
 }
 
-
 // ===============================
 // Escape regex
 // ===============================
 function escapeRegex(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
-
 
 // ===============================
 // Rileva la lingua dall'URL (min 2, max 5 caratteri)
@@ -136,7 +135,6 @@ function detectLanguageFromURL() {
 // Ricava la precedente traduzione dall'iframe
 // ===============================
 function getPreviousTranslation() {
-
   if (state.previousTranslation) {
     return state.previousTranslation;
   }
@@ -159,9 +157,6 @@ function getPreviousTranslation() {
 
   text = removeOneLeadingSpace(text);
 
-  const parts = text
-    .trim()
-    .split(/\n\.\n/);
   const lines = text.split("\n");
   const title = lines[0].trim();
   const body = lines.slice(1).join("\n").trim();
@@ -171,12 +166,11 @@ function getPreviousTranslation() {
 
   state.previousTranslation = {
     title,
-    paragraphs
+    paragraphs,
   };
 
   return state.previousTranslation;
 }
-
 
 // ===============================
 // Generazione HTML del diff
@@ -220,18 +214,21 @@ function generateDiffHTML(oldText, newText) {
   `;
 }
 
-
 // ===============================
 // Motore di suggerimento
 // ===============================
 function getSuggestion(englishRaw) {
-  if (!state.db) return null;
+  if (!state.db) {
+    return null;
+  }
 
   // Normalizza l'inglese dalla pagina
   const english = englishRaw.replace(/\s*\n\s*/g, " ").trim();
 
   for (const entry of state.db.patterns) {
-    if (!entry || !entry.english || !entry.translations) continue;
+    if (!entry || !entry.english || !entry.translations) {
+      continue;
+    }
 
     const entryEng = entry.english;
 
@@ -248,7 +245,9 @@ function getSuggestion(englishRaw) {
     const regex = new RegExp("^" + pattern + "$");
     const match = english.match(regex);
 
-    if (!match) continue;
+    if (!match) {
+      continue;
+    }
 
     let trad = entry.translations[state.lang];
 
@@ -272,7 +271,6 @@ function getSuggestion(englishRaw) {
   return null;
 }
 
-
 // ===============================
 // Genera l'HTML dei suggerimenti da mostrare nel pannello
 // ===============================
@@ -291,8 +289,8 @@ function generateSuggestionsHTML() {
       .map(p => p.trim());
 
     // aggiunge titolo all'inizio degli array di paragrafi
-    englishParagraphs.unshift(eng)
-    italianParagraphs.unshift(ita)
+    englishParagraphs.unshift(eng);
+    italianParagraphs.unshift(ita);
 
     // Controllo numero paragrafi
     if (englishParagraphs.length !== italianParagraphs.length) {
@@ -307,14 +305,16 @@ function generateSuggestionsHTML() {
     }
 
     for (let i = 0; i < englishParagraphs.length; i++) {
-      let button_class = ""
-      if (i == 0) {
+      let button_class = "";
+      if (i === 0) {
         output += `<div class="ddtss-section-title">Titolo</div>`;
         button_class = "apply-title";
-      } else if (i == 1) {
+      }
+      else if (i === 1) {
         output += `<div class="ddtss-section-title">Body</div>`;
         button_class = "apply-suggestion";
-      } else {
+      }
+      else {
         button_class = "apply-suggestion";
       }
 
@@ -329,8 +329,8 @@ function generateSuggestionsHTML() {
 
         // Controllo righe >75
         const longLinesITA = ita
-            .split("\n")
-            .filter(line => line.length > 75);
+          .split("\n")
+          .filter(line => line.length > 75);
 
         if (longLinesITA.length > 0) {
           output +=
@@ -376,7 +376,8 @@ function generateSuggestionsHTML() {
         output +=
           `<div class="ddtss-box-text">` +
           `   Traduzione corretta</div></div>`;
-      } else {
+      }
+      else {
         const diff = generateDiffHTML(itaNorm, suggNorm);
 
         output +=
@@ -396,12 +397,13 @@ function generateSuggestionsHTML() {
   return output;
 }
 
-
 // ===============================
 // Pannello laterale
 // ===============================
 function createSidePanel() {
-  if (document.getElementById("ddtss-sidepanel")) return;
+  if (document.getElementById("ddtss-sidepanel")) {
+    return;
+  }
 
   const panel = document.createElement("div");
 
@@ -432,22 +434,22 @@ function createSidePanel() {
 }
 
 function openSidePanel() {
-  refreshSidePanel()
+  refreshSidePanel();
   document.getElementById("ddtss-sidepanel").style.right = "0";
 }
-
 
 function refreshSidePanel() {
   const panel = document.getElementById("ddtss-sidepanel");
 
-  if (!panel) { return }
+  if (!panel) {
+    return;
+  }
 
   const content = document.getElementById("ddtss-content");
   const output = generateSuggestionsHTML();
 
   content.innerHTML = output;
 }
-
 
 function toggleSidePanel() {
   const panel = document.getElementById("ddtss-sidepanel");
@@ -460,8 +462,6 @@ function toggleSidePanel() {
 
   openSidePanel();
 }
-
-
 
 // ===============================
 // Estrazione campi dal DDTSS
@@ -483,12 +483,13 @@ function extractDDTSSFields() {
   state.italian.body = document.querySelector("textarea[name='long']");
 }
 
-
 // ===============================
 // Funzione per applicare modifiche al DDTSS
 // ===============================
 function applyDDTSSChange(element, newValue) {
-  if (!element) return;
+  if (!element) {
+    return;
+  }
 
   element.value = newValue;
 
@@ -505,12 +506,13 @@ function applyDDTSSChange(element, newValue) {
   element.dispatchEvent(new Event("blur", { bubbles: true }));
 }
 
-
 // ===============================
 // Event listener per "Applica suggerimento" (corpo)
 // ===============================
 document.addEventListener("click", (e) => {
-  if (!e.target.classList.contains("apply-suggestion")) return;
+  if (!e.target.classList.contains("apply-suggestion")) {
+    return;
+  }
 
   const index = parseInt(e.target.dataset.index, 10) - 1;
   const suggestion = decodeURIComponent(e.target.dataset.suggestion);
@@ -520,14 +522,15 @@ document.addEventListener("click", (e) => {
 
   applyDDTSSChange(state.italian.body, paragraphs.join("\n.\n"));
   refreshSidePanel();
-
 });
 
 // ===============================
 // Event listener per "Applica wrap" sul testo italiano
 // ===============================
 document.addEventListener("click", (e) => {
-  if (!e.target.classList.contains("apply-wrap-ita")) return;
+  if (!e.target.classList.contains("apply-wrap-ita")) {
+    return;
+  }
 
   const index = parseInt(e.target.dataset.index, 10) - 1;
 
@@ -536,50 +539,51 @@ document.addEventListener("click", (e) => {
 
   applyDDTSSChange(state.italian.body, paragraphs.join("\n.\n"));
   refreshSidePanel();
-
 });
-
 
 // ===============================
 // Event listener per "Applica suggerimento" (titolo)
 // ===============================
 document.addEventListener("click", (e) => {
-  if (!e.target.classList.contains("apply-title")) return;
+  if (!e.target.classList.contains("apply-title")) {
+    return;
+  }
 
   const suggestion = decodeURIComponent(e.target.dataset.suggestion);
 
   applyDDTSSChange(state.italian.title, suggestion);
   refreshSidePanel();
-
 });
-
 
 // ===============================
 // Event listener per "Usa traduzione precedente"
 // ===============================
 document.addEventListener("click", (e) => {
-
-  if (!e.target.classList.contains("load-old-translation")) return;
+  if (!e.target.classList.contains("load-old-translation")) {
+    return;
+  }
 
   const previous = getPreviousTranslation();
 
-  if (!previous) return;
+  if (!previous) {
+    return;
+  }
 
   const index = parseInt(e.target.dataset.index, 10);
 
   if (index === 0) {
-
     applyDDTSSChange(
       state.italian.title,
-      previous.title
+      previous.title,
     );
-
-  } else {
-
+  }
+  else {
     const oldParagraph =
       previous.paragraphs[index - 1];
 
-    if (!oldParagraph) return
+    if (!oldParagraph) {
+      return;
+    }
 
     const paragraphs =
       state.italian.body.value.split(/\n\.\n/);
@@ -588,13 +592,12 @@ document.addEventListener("click", (e) => {
 
     applyDDTSSChange(
       state.italian.body,
-      paragraphs.join("\n.\n")
+      paragraphs.join("\n.\n"),
     );
   }
 
   refreshSidePanel();
 });
-
 
 // ===============================
 // Inizializzazione
@@ -608,14 +611,14 @@ async function init() {
   if (state.italian.title) {
     state.italian.title.addEventListener(
       "input",
-      debounce(() => refreshSidePanel(), 300)
+      debounce(() => refreshSidePanel(), 300),
     );
   }
 
   if (state.italian.body) {
     state.italian.body.addEventListener(
       "input",
-      debounce(() => refreshSidePanel(), 300)
+      debounce(() => refreshSidePanel(), 300),
     );
   }
 
@@ -629,5 +632,4 @@ async function init() {
   }
 }
 
-init()
-
+init();
