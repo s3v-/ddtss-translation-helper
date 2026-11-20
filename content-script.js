@@ -145,15 +145,15 @@ function getPreviousTranslation() {
     return null;
   }
 
+  const descriptionString = `Description-${state.lang}: `;
   const pre = [...iframe.contentDocument.querySelectorAll("pre")]
-    .find(el => el.textContent.startsWith("Description-it:"));
+    .find(el => el.textContent.startsWith(descriptionString));
 
   if (!pre) {
     return null;
   }
 
-  let text = pre.textContent
-    .replace(/^Description-it:\s*/, "");
+  let text = pre.textContent.replace(descriptionString, "");
 
   text = removeOneLeadingSpace(text);
 
