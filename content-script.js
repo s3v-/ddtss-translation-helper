@@ -157,12 +157,10 @@ function getPreviousTranslation() {
 
   text = removeOneLeadingSpace(text);
 
-  const lines = text.split("\n");
-  const title = lines[0].trim();
-  const body = lines.slice(1).join("\n").trim();
-  const paragraphs = body
-    .split(/\n\.\n/)
-    .map(p => p.trim());
+  const match = text.match(/^([^\n]*)\n(.*)$/s);
+  const title = match ? match[1] : "";
+  const body = match ? match[2] : "";
+  const paragraphs = body.split(/\n\.\n/);
 
   state.previousTranslation = {
     title,
