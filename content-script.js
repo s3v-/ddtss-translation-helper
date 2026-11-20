@@ -359,7 +359,7 @@ function generateSuggestionsHTML() {
         output +=
           `<div class="ddtss-box">` +
           `<div class="ddtss-box-text">` +
-          `<strong>Suggerimento:</strong>\n${suggestion}</div>` +
+          `<strong>Suggerimento:</strong><br>${suggestion}</div>` +
           `<button class="ddtss-btn ${button_class}" data-index="${i}" data-suggestion="${encodeURIComponent(suggestion)}">Applica suggerimento</button></div>` +
           loadPrevTransButtonString +
           `</div>`;
@@ -383,7 +383,7 @@ function generateSuggestionsHTML() {
           `<div class="ddtss-box-text">` +
           `<strong>Similarità:</strong> ${sim}%</div>` +
           `<div class="ddtss-box-text">` +
-          `<strong>Suggerimento</strong>\n` +
+          `<strong>Suggerimento</strong><br>` +
           `${suggestion}</div>` +
           `<strong>Diff</strong>\n` +
           `${diff}\n` +
