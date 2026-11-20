@@ -20,8 +20,6 @@
     "default_title": "DDTSS Helper"
   },
 
-  "background": {},
-
   "web_accessible_resources": [
     "database.json"
   ]
