@@ -839,6 +839,18 @@
       }
     },
     {
+      "english": "LLVM JIT support for PostgreSQL {version}",
+      "translations": {
+        "it": "gestione di JIT con LLVM per PostgreSQL {version}"
+      }
+    },
+    {
+      "english": "This package provides LLVM-based query JITing for PostgreSQL {version}.",
+      "translations": {
+        "it": "Questo pacchetto fornisce la compilazione JIT con LLVM delle query per PostgreSQL {version}."
+      }
+    },
+    {
       "english": "Geographic objects support for PostgreSQL {version} -- SQL scripts",
       "translations": {
         "it": "gestione di oggetti geografici per PostgreSQL {version} -- script SQL"
