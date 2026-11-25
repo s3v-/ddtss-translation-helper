@@ -1215,6 +1215,12 @@
       "translations": {
         "it": "Questo pacchetto fornisce gli header e altri file di supporto comuni ai vari pacchetti di sviluppo (con gestione dei numeri reali o complessi) per PETSc {version}."
       }
+    },
+    {
+      "english": "This is a transitional package to ease upgrades to {package}. It can safely be removed once no packages in the archive depend on it.",
+      "translations": {
+        "it": "Questo è un pacchetto fittizio di transizione per facilitare gli aggiornamenti a {package}. Può essere rimosso senza problemi una volta che nessun pacchetto dipende da esso."
+      }
     }
   ]
 }
