@@ -791,6 +791,12 @@
       }
     },
     {
+      "english": "This package has been compiled for PostgreSQL {version}.",
+      "translations": {
+        "it": "Questo pacchetto è stato compilato per PostgreSQL {version}."
+      }
+    },
+    {
       "english": "This is the client package for PostgreSQL {version}. If you install PostgreSQL {version} on a standalone machine, you need the server package postgresql-{version}, too. On a network, you can install this package on many client machines, while the server package may be installed on only one machine.",
       "translations": {
         "it": "Questo è il pacchetto client per PostgreSQL {version}. Se si installa PostgreSQL {version} su una macchina indipendente, è necessario anche il pacchetto server postgresql-{version}. Su una rete, questo pacchetto può essere installato su molte macchine client, mentre il pacchetto server può essere installato su una sola macchina."
@@ -923,9 +929,9 @@
       }
     },
     {
-      "english": "arbitrary precision integers and rationals for PostgreSQL 17",
+      "english": "arbitrary precision integers and rationals for PostgreSQL {vers}",
       "translations": {
-        "it": "interi e razionali a precisione arbitraria per PostgreSQL 17"
+        "it": "interi e razionali a precisione arbitraria per PostgreSQL {vers}"
       }
     },
     {
